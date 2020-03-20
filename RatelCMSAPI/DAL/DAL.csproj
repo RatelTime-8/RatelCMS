@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.30\lib\net461\Dapper.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -44,12 +47,27 @@
   <ItemGroup>
     <Compile Include="BaseDal.cs" />
     <Compile Include="Contractmanagement\Contractmanagementdal.cs" />
+    <Compile Include="Helper\DapperHelper.cs" />
+    <Compile Include="Helper\DBHelper.cs" />
+    <Compile Include="Helper\MD5Helper.cs" />
     <Compile Include="Project\Projectdal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reimbursement\Reimbursementdal.cs" />
     <Compile Include="Talent\Talentdal.cs" />
     <Compile Include="User\Usersdal.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{55652157-a012-4046-bf85-f96cd44f4321}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{8f32f212-6181-4db9-9a88-46b86980d582}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

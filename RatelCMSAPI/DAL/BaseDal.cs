@@ -7,9 +7,9 @@ using System.Configuration;
 
 namespace DAL
 {
-    public class BaseDal
+    public static class BaseDal
     {
         //string ConnStr = ConfigurationManager.AppSettings["ConnStr"].ToString();
-        string ConnStr = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+       static string ConnStr = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
     }
 }

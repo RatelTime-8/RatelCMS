@@ -7,7 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using Dapper;
 
-namespace Common
+namespace DAL
 {
     public class DapperHelper<T>
     {
@@ -15,7 +15,7 @@ namespace Common
         /// 数据库连接字符串
         /// </summary>
         private static readonly string connectionString =
-            ConfigurationManager.ConnectionStrings["ConString"].ConnectionString;
+            ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
 
         /// <summary>
         /// 查询列表

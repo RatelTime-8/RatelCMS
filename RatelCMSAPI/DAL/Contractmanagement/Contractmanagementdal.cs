@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Contractmanagement
 {
-    class Contractmanagementdal
+    public class Contractmanagementdal
     {
+
     }
 }

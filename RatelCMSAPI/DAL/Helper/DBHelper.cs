@@ -6,9 +6,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 using System.Data;
-namespace Common
+namespace DAL
 {
-    public class DBHelper
+    public static class DBHelper
     {
         //连接数据库
         static SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=Xiangmu;Integrated Security=True");
