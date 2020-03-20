@@ -45,6 +45,8 @@
     <Compile Include="Project\StageInfo.cs" />
     <Compile Include="Project\StagePlanInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reimbursement\ReimbursementInfo.cs" />
+    <Compile Include="Reimbursement\Reimbursementtype.cs" />
     <Compile Include="User\DepartmentInfo.cs" />
     <Compile Include="User\DerOfPerInfo.cs" />
     <Compile Include="User\PermissionInfo.cs" />
