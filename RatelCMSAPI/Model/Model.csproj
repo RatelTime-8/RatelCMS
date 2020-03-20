@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contractmanagement\Contractmanagement.cs" />
     <Compile Include="Project\ProjectInfo.cs" />
     <Compile Include="Project\StageInfo.cs" />
     <Compile Include="Project\StagePlanInfo.cs" />
