@@ -48,8 +48,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reimbursement\ReimbursementInfo.cs" />
     <Compile Include="Reimbursement\Reimbursementtype.cs" />
-    <Compile Include="Talents\RecordModel.cs" />
-    <Compile Include="Talents\TalentsModel.cs" />
+    <Compile Include="Talent\RecordModel.cs" />
+    <Compile Include="Talent\TalentsModel.cs" />
     <Compile Include="User\DepartmentInfo.cs" />
     <Compile Include="User\DerOfPerInfo.cs" />
     <Compile Include="User\PermissionInfo.cs" />
