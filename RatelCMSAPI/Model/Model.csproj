@@ -42,6 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User\DepartmentInfo.cs" />
+    <Compile Include="User\DerOfPerInfo.cs" />
+    <Compile Include="User\PermissionInfo.cs" />
+    <Compile Include="User\PositionInfo.cs" />
+    <Compile Include="User\UserOfDer.cs" />
     <Compile Include="User\UserInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

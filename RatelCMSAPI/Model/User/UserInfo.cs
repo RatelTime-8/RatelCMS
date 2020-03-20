@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model.User
+namespace Model
 {
+    //用户表
     public class UserInfo
     {
        //用户Id
