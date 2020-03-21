@@ -45,7 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseDal.cs" />
     <Compile Include="Contractmanagement\Contractmanagementdal.cs" />
     <Compile Include="Helper\DapperHelper.cs" />
     <Compile Include="Helper\DBHelper.cs" />
