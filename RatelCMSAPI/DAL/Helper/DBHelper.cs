@@ -6,13 +6,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 using System.Data;
-namespace Common
+using System.Configuration;
+
+namespace DAL
 {
-    public class DBHelper
+    public static class DBHelper
     {
         //连接数据库
-        static SqlConnection conn = new SqlConnection("Data Source=.;Initial Catalog=Xiangmu;Integrated Security=True");
         static SqlDataReader sdr;
+        //string ConnStr = ConfigurationManager.AppSettings["ConnStr"].ToString();
+        //static SqlConnection ConnStr = ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+        private static readonly string connectionString =
+         ConfigurationManager.ConnectionStrings["ConnStr"].ConnectionString;
+        static SqlConnection conn = new SqlConnection(connectionString);
         /// <summary>
         /// 获取数据流  查询、显示、绑定下拉
         /// </summary>
