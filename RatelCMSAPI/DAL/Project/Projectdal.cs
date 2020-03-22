@@ -25,7 +25,7 @@ namespace DAL
         /// </summary>
         public int AddProject(ProjectInfo info)
         {
-            string sql = "insert into ProjectInfo values(@ProjectNumber,@ProjectName,@ProjectDescribe,@ProjectStaffId,@TechStaffId,@ProductStaffId,@TestStaffId,@MarketStaffId,@ProjectStageId,@ProjectStartTime,@ProjectOutTime)";
+            string sql = "insert into ProjectInfo values(@ProjectNumber,@ProjectName,@ProjectDescribe,@ProjectStaffId,@TechStaffId,@ProductStaffId,@TestStaffId,@MarketStaffId,@Projectstage,@ProjectStartTime,@ProjectOutTime)";
             return DapperHelper<ProjectInfo>.Execute(sql,info);
         }
 
@@ -51,6 +51,16 @@ namespace DAL
 
             return DapperHelper<ProjectInfo>.Execute(sql,infos);
         }
+
+        /// <summary>
+        /// 分页显示所有项目
+        /// </summary>
+        /// <returns></returns>
+        //public List<ProjectInfo> ProjectShow()
+        //{
+
+        //}
+
 
 
     }

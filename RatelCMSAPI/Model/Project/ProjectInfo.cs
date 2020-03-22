@@ -28,7 +28,7 @@ namespace Model
         //市场负责人
         public int MarketStaffId { get; set; }
         //当前阶段
-        public int ProjectStageId { get; set; }
+        public int ProjectStage { get; set; }
         //项目开始日期
         public DateTime ProjectStartTime { get; set; }
         //项目截止时间
