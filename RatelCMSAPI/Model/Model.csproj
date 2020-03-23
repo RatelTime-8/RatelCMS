@@ -43,7 +43,6 @@
   <ItemGroup>
     <Compile Include="Contractmanagement\Contractmanagement.cs" />
     <Compile Include="Project\ProjectInfo.cs" />
-    <Compile Include="Project\StageInfo.cs" />
     <Compile Include="Project\StagePlanInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reimbursement\ReimbursementInfo.cs" />
