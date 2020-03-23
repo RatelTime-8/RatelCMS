@@ -52,6 +52,7 @@
     <Compile Include="Project\Projectdal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reimbursement\Reimbursementdal.cs" />
+    <Compile Include="Talent\RecordDal.cs" />
     <Compile Include="Talent\Talentdal.cs" />
     <Compile Include="User\Usersdal.cs" />
   </ItemGroup>
