@@ -93,12 +93,12 @@ namespace DAL
         }
 
         /// <summary>
-        /// 删除阶段
+        /// 逻辑删除修改阶段
         /// </summary>
-        public int DeleteStage(int PlanId)
+        public int DeleteStage(int StageStaus)
         {
-            string sql = "delete from StagePlanInfo where PlanId=@PlanId";
-            return DapperHelper<StagePlanInfo>.Execute(sql,PlanId);
+            string sql = "update StagePlanInfo set StageStaus =@StageStaus";
+            return DapperHelper<StagePlanInfo>.Execute(sql, StageStaus);
         }
 
         /// <summary>
