@@ -21,5 +21,7 @@ namespace Model
         public int StageStaffName { get; set; }
         //项目连接
         public int ProjectStageId { get; set; }
+        //状态
+        public int StageStaus { get; set; }
     }
 }
