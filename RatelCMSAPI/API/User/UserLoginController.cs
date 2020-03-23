@@ -11,12 +11,7 @@ namespace API.User
      
     public class UserLoginController : ApiController
     {
-        UserLoginBll LoginBll = new UserLoginBll();
-
-        public UserInfo UserLogin(string phone,string pass)
-        {
-            return LoginBll.UserInfoLgoin(phone,pass);
-        }
+        
 
     }
 }
