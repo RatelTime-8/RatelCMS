@@ -82,5 +82,54 @@ namespace DAL
             return DapperHelper<StagePlanInfo>.Query(sql,ProjectStageId);
         }
 
+        /// <summary>
+        /// 新增阶段
+        /// </summary>
+        /// <returns></returns>
+        public int AddStage(StagePlanInfo info)
+        {
+            string sql = "insert into StagePlanInfo values(@StageName,@StageStartTime,@StageFinishTime,@StageStaffName,@ProjectStageId)";
+            return DapperHelper<StagePlanInfo>.Execute(sql,info);
+        }
+
+        /// <summary>
+        /// 删除阶段
+        /// </summary>
+        public int DeleteStage(int PlanId)
+        {
+            string sql = "delete from StagePlanInfo where PlanId=@PlanId";
+            return DapperHelper<StagePlanInfo>.Execute(sql,PlanId);
+        }
+
+        /// <summary>
+        /// 修改阶段
+        /// </summary>
+        /// <returns></returns>
+        public int UpdateStage(List<StagePlanInfo> infos)
+        {
+            string sql = "update StagePlanInfo set StageName=@StageName ,StageStartTime=@StageStartTime,StageFinishTime=@StageFinishTime,StageStaffName=@StageStaffName,ProjectStageId=@ProjectStageId where PlanId=@PlanId";
+            return DapperHelper<StagePlanInfo>.Execute(sql,infos);
+        }
+
+        /// <summary>
+        /// 修改项目状态
+        /// </summary>
+        /// <returns></returns>
+        public int UpdateProjectStaus(ProjectInfo project)
+        {
+            string sql = "update ProjectInfo set Projectstage=@Projectstage where ProjectId=@ProjectId";
+            return DapperHelper<ProjectInfo>.Execute(sql,project);
+        }
+
+        /// <summary>
+        /// 绑定项目状态
+        /// </summary>
+        /// <returns></returns>
+        public List<StagePlanInfo> BandProjectStaus(int ProjectId)
+        {
+            string sql = "select s.ProjectStageId,s.StageName from ProjectInfo p join StagePlanInfo s on p.Projectstage=s.ProjectStageId where s.ProjectStageId=@ProjectId";
+            return DapperHelper<StagePlanInfo>.Query(sql,ProjectId);
+        }
+
     }
 }
