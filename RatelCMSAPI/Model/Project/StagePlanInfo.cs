@@ -12,12 +12,16 @@ namespace Model
         //Id
         public int PlanId { get; set; }
         //阶段名称
-        public int StageNameId { get; set; }
+        public string StageName { get; set; }
         //开始日期
         public DateTime StageStartTime { get; set; }
         //完成日期
         public DateTime StageFinishTime { get; set; }
         //阶段负责人
-        public int StageStaffId { get; set; }
+        public int StageStaffName { get; set; }
+        //项目连接
+        public int ProjectStageId { get; set; }
+        //状态
+        public int StageStaus { get; set; }
     }
 }

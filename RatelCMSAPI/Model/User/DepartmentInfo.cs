@@ -13,7 +13,5 @@ namespace Model
         public int DepartmentId { get; set; }
         //部门名称
         public string DepartmentName { get; set; }
-        //职位Id
-        public int PositId { get; set; }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDKClient
 {
-    public class Class1
+    public class BurseUpdateResponse : BaseResponse
     {
     }
 }
