@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Talent
 {
-    class Talentdal
+   public class Talentdal
     {
+
     }
 }
