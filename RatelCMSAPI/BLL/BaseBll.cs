@@ -6,21 +6,24 @@ using System.Threading.Tasks;
 
 namespace BLL
 {
-        /// <summary>
-        /// 单例模式
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        public abstract class BaseBll<T> where T : new()
+   public abstract class BaseBll<T> where T :new()
+    {
+        private static T instace;
+        private static readonly object syncRoot = new object();
+        public static T GetBaseBll()
         {
-            private static T _instance;
-            public static T Instance
+            if (instace==null)
             {
-                get
+                lock (syncRoot)
                 {
-                    if (_instance == null)
-                        _instance = new T();
-                    return _instance;
+                    if (instace==null)
+                    {
+                        instace = new T();
+                    }
                 }
             }
+            return instace;
         }
+
     }
+}
