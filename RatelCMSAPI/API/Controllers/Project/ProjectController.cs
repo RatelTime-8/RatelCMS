@@ -12,7 +12,7 @@ namespace API.Controllers
 {
     public class ProjectController : ApiController
     {
-        
+        ProjectBll bll = new ProjectBll();
         [HttpPost]
         /// <summary>
         /// 项目参与人员绑定
