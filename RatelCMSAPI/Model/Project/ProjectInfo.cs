@@ -33,5 +33,7 @@ namespace Model
         public DateTime ProjectStartTime { get; set; }
         //项目截止时间
         public DateTime ProjectOutTime { get; set; }
+        //项目状态
+        public int ProjectStaus { get; set; }
     }
 }
