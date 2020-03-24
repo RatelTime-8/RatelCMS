@@ -9,6 +9,10 @@ namespace SDKClient
     public class BaseResponse
     {
         /// <summary>
+        /// 判断是否成功
+        /// </summary>
+        public bool IsRegistSuccess { get; set; }
+        /// <summary>
         /// 状态为true 表示接口请示成功了
         /// </summary>
         public bool Status = true;

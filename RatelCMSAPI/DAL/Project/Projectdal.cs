@@ -1,23 +1,27 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper;
 using Model;
 
 namespace DAL
 {
+    /// <summary>
+    /// 项目相关
+    /// </summary>
     public class Projectdal
     {
         /// <summary>
         /// 项目参与人员绑定
         /// 根据所在职位部门
         /// </summary>
-        public List<PositionInfo> BandProjectbinding(string DepartId)
+        public List<PositionInfo> BandProjectbinding(int DepartId)
         {
-            string sql = "select * from PositionInfo where DepartId=@DepartId";
-
-            return DapperHelper<PositionInfo>.Query(sql, DepartId);
+            string sql = "select * from PositionInfo where DepartId=@Id";
+            return DapperHelper<PositionInfo>.Query(sql, new {Id=DepartId});
         }
 
         /// <summary>
@@ -25,15 +29,24 @@ namespace DAL
         /// </summary>
         public int AddProject(ProjectInfo info)
         {
-            string sql = "insert into ProjectInfo values(@ProjectNumber,@ProjectName,@ProjectDescribe,@ProjectStaffId,@TechStaffId,@ProductStaffId,@TestStaffId,@MarketStaffId,@Projectstage,@ProjectStartTime,@ProjectOutTime)";
-            return DapperHelper<ProjectInfo>.Execute(sql, info);
+            string sql = @"insert into ProjectInfo
+           (ProjectNumber,ProjectName,ProjectDescribe,
+           ProjectStaffId,TechStaffId,ProductStaffId,
+           TestStaffId,MarketStaffId,Projectstage,ProjectStartTime,
+           ProjectOutTime,ProjectStaus) 
+           values(@ProjectNumber,@ProjectName,
+           @ProjectDescribe,@ProjectStaffId,
+           @TechStaffId,@ProductStaffId,@TestStaffId,
+           @MarketStaffId,@Projectstage,@ProjectStartTime,
+           @ProjectOutTime,@ProjectStaus)";
+          return DapperHelper<ProjectInfo>.Execute(sql, info);
         }
 
         /// <summary>
         /// 修改项目
         /// </summary>
         /// <returns></returns>
-        public int UpdateProject(List<ProjectInfo> infos)
+        public int UpdateProject(ProjectInfo info)
         {
             string sql = @"update ProjectInfo set 
             ProjectNumber=@ProjectNumber,
@@ -49,66 +62,27 @@ namespace DAL
             ProjectOutTime=@ProjectOutTime
             where ProjectId=@ProjectId ";
 
-            return DapperHelper<ProjectInfo>.Execute(sql, infos);
+            return DapperHelper<ProjectInfo>.Execute(sql, info);
         }
 
         /// <summary>
         /// 分页显示所有项目
         /// </summary>
         /// <returns></returns>
-        //public List<ProjectInfo> ProjectShow()
-        //{
-
-        //}
-
-        /// <summary>
-        /// 查询项目详情
-        /// </summary>
-        /// <returns></returns>
-        public List<ProjectInfo> ProjectDetail(string ProjectNumber)
+        public List<ProjectInfo> ProjectShow(int PageIndex,int PageSize,string ProjectNumber,int Projectstage,out int TotalCount)
         {
-            string sql = "select * from ProjectInfo where ProjectNumber=@ProjectNumber";
-            return DapperHelper<ProjectInfo>.Query(sql,ProjectNumber);
-        }
+            var p = new DynamicParameters();
+            p.Add("@Pageindex",PageIndex);
+            p.Add("@PageSize",PageSize);
+            p.Add("@ProjectNumber",ProjectNumber);
+            p.Add("@Projectstage",Projectstage);
+            p.Add("@TotalCount",0,DbType.Int32,ParameterDirection.Output);
 
-        /// <summary>
-        /// 项目阶段详情
-        /// </summary>
-        /// <param name="ProjectStageId"></param>
-        /// <returns></returns>
-        public List<StagePlanInfo> StageDetail(int ProjectStageId)
-        {
-            string sql = "select * from StagePlanInfo where ProjectStageId=@ProjectStageId";
-            return DapperHelper<StagePlanInfo>.Query(sql,ProjectStageId);
-        }
+            var list= DapperHelper<ProjectInfo>.ExecutePro("dbo.P_ProjectShow",p);
 
-        /// <summary>
-        /// 新增阶段
-        /// </summary>
-        /// <returns></returns>
-        public int AddStage(StagePlanInfo info)
-        {
-            string sql = "insert into StagePlanInfo values(@StageName,@StageStartTime,@StageFinishTime,@StageStaffName,@ProjectStageId)";
-            return DapperHelper<StagePlanInfo>.Execute(sql,info);
-        }
+            TotalCount = p.Get<int>("@TotalCount");
 
-        /// <summary>
-        /// 逻辑删除修改阶段
-        /// </summary>
-        public int DeleteStage(int StageStaus)
-        {
-            string sql = "update StagePlanInfo set StageStaus =@StageStaus";
-            return DapperHelper<StagePlanInfo>.Execute(sql, StageStaus);
-        }
-
-        /// <summary>
-        /// 修改阶段
-        /// </summary>
-        /// <returns></returns>
-        public int UpdateStage(List<StagePlanInfo> infos)
-        {
-            string sql = "update StagePlanInfo set StageName=@StageName ,StageStartTime=@StageStartTime,StageFinishTime=@StageFinishTime,StageStaffName=@StageStaffName,ProjectStageId=@ProjectStageId where PlanId=@PlanId";
-            return DapperHelper<StagePlanInfo>.Execute(sql,infos);
+            return list;
         }
 
         /// <summary>
@@ -125,11 +99,69 @@ namespace DAL
         /// 绑定项目状态
         /// </summary>
         /// <returns></returns>
-        public List<StagePlanInfo> BandProjectStaus(int ProjectId)
+        public List<ProjectInfo> BandProjectStaus(int ProjectId)
         {
-            string sql = "select s.ProjectStageId,s.StageName from ProjectInfo p join StagePlanInfo s on p.Projectstage=s.ProjectStageId where s.ProjectStageId=@ProjectId";
-            return DapperHelper<StagePlanInfo>.Query(sql,ProjectId);
+            string sql = "select P.Projectstage,s.StageName from ProjectInfo p join StagePlanInfo s on p.Projectstage=s.ProjectStageId where s.ProjectStageId=projectId";
+            return DapperHelper<ProjectInfo>.Query(sql,new { projectId= ProjectId });
         }
 
+        /// <summary>
+        /// 逻辑删除项目
+        /// </summary>
+        /// <returns></returns>
+        public int UpdateStausProject(int ProjectId)
+        {
+            string sql = "update ProjectInfo set ProjectStaus=0 where ProjectId=@projectId ";
+            return DapperHelper<ProjectInfo>.Execute(sql,new { projectId= ProjectId });
+        }
+
+        /// <summary>
+        /// 查询项目详情
+        /// </summary>
+        /// <returns></returns>
+        public List<ProjectInfo> ProjectDetail(string ProjectNumber)
+        {
+            string sql = "select * from ProjectInfo where ProjectNumber=@ProjectNumber";
+            return DapperHelper<ProjectInfo>.Query(sql, new { ProjectNumber = ProjectNumber });
+        }
+        /// <summary>
+        /// 项目阶段详情
+        /// </summary>
+        /// <param name="ProjectStageId"></param>
+        /// <returns></returns>
+        public List<StagePlanInfo> StageDetail(int ProjectStageId)
+        {
+            string sql = "select * from StagePlanInfo where ProjectStageId=@projectStageId";
+            return DapperHelper<StagePlanInfo>.Query(sql, new { projectStageId = ProjectStageId });
+        }
+
+        /// <summary>
+        /// 新增阶段
+        /// </summary>
+        /// <returns></returns>
+        public int AddStage(StagePlanInfo info)
+        {
+            string sql = "insert into StagePlanInfo values(@StageName,@StageStartTime,@StageFinishTime,@StageStaffName,@ProjectStageId,1)";
+            return DapperHelper<StagePlanInfo>.Execute(sql, info);
+        }
+
+        /// <summary>
+        /// 逻辑删除修改阶段
+        /// </summary>
+        public int DeleteStage(int PlanId)
+        {
+            string sql = "update StagePlanInfo set StageStaus =0 where PlanId=@planId";
+            return DapperHelper<StagePlanInfo>.Execute(sql, new { planId = PlanId });
+        }
+
+        /// <summary>
+        /// 修改阶段
+        /// </summary>
+        /// <returns></returns>
+        public int UpdateStage(StagePlanInfo info)
+        {
+            string sql = "update StagePlanInfo set StageName=@StageName ,StageStartTime=@StageStartTime,StageFinishTime=@StageFinishTime,StageStaffName=@StageStaffName,ProjectStageId=@ProjectStageId where PlanId=@PlanId";
+            return DapperHelper<StagePlanInfo>.Execute(sql, info);
+        }
     }
 }
