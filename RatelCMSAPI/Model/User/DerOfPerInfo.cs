@@ -7,12 +7,12 @@ using System.Threading.Tasks;
 namespace Model
 {
     //权限关联表
-    public class DerOfPerInfo
+    public class PosOfPerInfo
     {
         //Id
         public int Id { get; set; }
         //职位Id
-        public int DerId { get; set; }
+        public int PosId { get; set; }
         //权限Id
         public int PerId { get; set; }
     }

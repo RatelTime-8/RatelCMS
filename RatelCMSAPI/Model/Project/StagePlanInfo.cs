@@ -19,9 +19,9 @@ namespace Model
         public DateTime StageFinishTime { get; set; }
         //阶段负责人
         public int StageStaffName { get; set; }
-        /// <summary>
-        /// 项目连接
-        /// </summary>
+        //项目连接
         public int ProjectStageId { get; set; }
+        //状态
+        public int StageStaus { get; set; }
     }
 }

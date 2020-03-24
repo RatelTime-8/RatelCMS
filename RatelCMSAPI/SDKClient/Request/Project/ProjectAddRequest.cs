@@ -1,14 +1,15 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace SDKClient
 {
-    //项目表
-    public class ProjectInfo
+    public class ProjectAddRequest : BaseRequest
     {
+
         //Id
         public int ProjectId { get; set; }
         //项目编号
@@ -35,5 +36,9 @@ namespace Model
         public DateTime ProjectOutTime { get; set; }
         //项目状态
         public int ProjectStaus { get; set; }
+        public override string GetApiName()
+        {
+            return "/api/User/AddUser";
+        }
     }
 }
