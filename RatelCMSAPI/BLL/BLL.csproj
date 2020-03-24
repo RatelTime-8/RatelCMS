@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseBll.cs" />
     <Compile Include="Project\ProjectBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -58,6 +59,10 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{8f32f212-6181-4db9-9a88-46b86980d582}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SDKClient\SDKClient.csproj">
+      <Project>{8f32e304-3a2c-4970-bbd8-f56cc0917432}</Project>
+      <Name>SDKClient</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
