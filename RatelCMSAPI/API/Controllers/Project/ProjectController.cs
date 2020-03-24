@@ -12,7 +12,7 @@ namespace API.Controllers
 {
     public class ProjectController : ApiController
     {
-        ProjectBll bll = new ProjectBll();
+        
         [HttpPost]
         /// <summary>
         /// 项目参与人员绑定
@@ -20,7 +20,7 @@ namespace API.Controllers
         /// </summary>
         public UserGetProjectResponse BandProjectbinding(UserGetProjectRequest request)
         {
-            return bll.BandProjectbinding(request);
+            return ProjectBll.Instance.BandProjectbinding(request);
         }
 
         [HttpPost]
@@ -29,7 +29,7 @@ namespace API.Controllers
         /// </summary>
         public ProjectAddResponse AddProject(ProjectAddRequest request)
         {
-            return bll.AddProject(request);
+            return ProjectBll.Instance.AddProject(request);
         }
 
         [HttpPost]
@@ -39,7 +39,7 @@ namespace API.Controllers
         /// <returns></returns>
         public ProjectUpdateResponse UpdateProject(ProjectUpdateRequest request)
         {
-            return bll.UpdateProject(request);
+            return ProjectBll.Instance.UpdateProject(request);
         }
     }
 }
