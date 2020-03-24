@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace SDKClient
 {
-    public class ProjectDeleteResponse : BaseResponse
+    public class UserGetProjectResponse : BaseResponse
     {
+        
     }
 }

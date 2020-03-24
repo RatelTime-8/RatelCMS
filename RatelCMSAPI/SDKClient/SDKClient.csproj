@@ -48,6 +48,7 @@
     <Compile Include="Request\Contractmanagement\ContraDeleteRequest.cs" />
     <Compile Include="Request\Contractmanagement\ContraGetRequest.cs" />
     <Compile Include="Request\Contractmanagement\ContraUpdateRequest.cs" />
+    <Compile Include="Request\Project\User\UserGetProjectRequest.cs" />
     <Compile Include="Request\Reimbursement\BurseAddRequest.cs" />
     <Compile Include="Request\Reimbursement\BurseDeleteRequest.cs" />
     <Compile Include="Request\Reimbursement\BurseGetRequest.cs" />
@@ -57,7 +58,6 @@
     <Compile Include="Request\Talent\TalentGetRequest.cs" />
     <Compile Include="Request\Talent\TalentUpdateRequest.cs" />
     <Compile Include="Request\Project\ProjectAddRequest.cs" />
-    <Compile Include="Request\Project\ProjectDeleteRequest.cs" />
     <Compile Include="Request\Project\ProjectGetRequest.cs" />
     <Compile Include="Request\Project\ProjectUpdateRequest.cs" />
     <Compile Include="Request\User\UserAddRequest.cs" />
@@ -68,6 +68,7 @@
     <Compile Include="Response\Contractmanagement\ContraDeleteResponse.cs" />
     <Compile Include="Response\Contractmanagement\ContraGetResponse.cs" />
     <Compile Include="Response\Contractmanagement\ContraUpdateResponse.cs" />
+    <Compile Include="Response\Project\User\UserGetProjectResponse.cs" />
     <Compile Include="Response\Reimbursement\BurseAddResponse.cs" />
     <Compile Include="Response\Reimbursement\BurseDeleteResponse.cs" />
     <Compile Include="Response\Reimbursement\BurseGetResponse.cs" />
@@ -77,7 +78,6 @@
     <Compile Include="Response\Talent\TalentGetResponse.cs" />
     <Compile Include="Response\Talent\TalentUpdateResponse.cs" />
     <Compile Include="Response\Project\ProjectAddResponse.cs" />
-    <Compile Include="Response\Project\ProjectDeleteResponse.cs" />
     <Compile Include="Response\Project\ProjectGetResponse.cs" />
     <Compile Include="Response\Project\ProjectUpdateResponse.cs" />
     <Compile Include="Response\User\UserAddResponse.cs" />

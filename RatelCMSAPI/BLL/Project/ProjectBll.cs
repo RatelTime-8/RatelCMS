@@ -17,9 +17,25 @@ namespace BLL
         /// 项目参与人员绑定
         /// 根据所在职位部门
         /// </summary>
-        public UserGetResponse BandProjectbinding(UserAddRequest request)
+        public UserGetProjectResponse BandProjectbinding(UserGetProjectRequest request)
         {
-            UserGetResponse response = new UserGetResponse();
+            UserGetProjectResponse response = new UserGetProjectResponse();
+
+            int departId = request.DepartId;
+
+            var list = dal.BandProjectbinding(departId);
+
+            if (list.Count>0)
+            {
+                response.Message = "部门人员查询成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "部门人员查询失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }
@@ -31,6 +47,36 @@ namespace BLL
         {
             ProjectAddResponse response = new ProjectAddResponse();
 
+            ProjectInfo info = new ProjectInfo()
+            {
+                ProjectNumber=request.ProjectNumber,
+                ProjectName=request.ProjectName,
+                ProjectDescribe = request.ProjectDescribe,
+                ProjectStaffId = request.ProjectStaffId,
+                TechStaffId = request.TechStaffId,
+                ProductStaffId = request.ProductStaffId,
+                TestStaffId = request.TestStaffId,
+                MarketStaffId = request.MarketStaffId,
+                ProjectStage = request.ProjectStage,
+                ProjectStartTime = request.ProjectStartTime,
+                ProjectOutTime=request.ProjectOutTime,
+                ProjectStaus=1
+            };
+
+            var result = dal.AddProject(info);
+
+            if (result>0)
+            {
+                response.Message = "新增项目成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "新增项目失败";
+                response.IsRegistSuccess = false;
+            }
+
             return response;
         }
 
@@ -41,6 +87,36 @@ namespace BLL
         public ProjectUpdateResponse UpdateProject(ProjectUpdateRequest request)
         {
             ProjectUpdateResponse response = new ProjectUpdateResponse();
+
+            ProjectInfo info = new ProjectInfo()
+            {
+                ProjectId = request.ProjectId,
+                ProjectNumber = request.ProjectNumber,
+                ProjectName = request.ProjectName,
+                ProjectDescribe = request.ProjectDescribe,
+                ProjectStaffId = request.ProjectStaffId,
+                TechStaffId = request.TechStaffId,
+                ProductStaffId = request.ProductStaffId,
+                TestStaffId = request.TestStaffId,
+                MarketStaffId = request.MarketStaffId,
+                ProjectStage = request.ProjectStage,
+                ProjectStartTime = request.ProjectStartTime,
+                ProjectOutTime = request.ProjectOutTime,
+                ProjectStaus = 1
+            };
+
+            var result = dal.UpdateProject(info);
+
+            if (result>0)
+            {
+                response.Message = "项目修改成功";
+                response.IsRegistSuccess = true;
+            }
+            else
+            {
+                response.Message = "修改项目失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }
@@ -93,9 +169,9 @@ namespace BLL
         /// <summary>
         /// 逻辑删除修改阶段
         /// </summary>
-        public ProjectDeleteResponse DeleteStage(ProjectDeleteRequest request)
+        public ProjectUpdateResponse DeleteStage(ProjectUpdateRequest request)
         {
-            ProjectDeleteResponse response = new ProjectDeleteResponse();
+            ProjectUpdateResponse response = new ProjectUpdateResponse();
 
             return response;
         }
@@ -137,9 +213,9 @@ namespace BLL
         /// 逻辑删除项目
         /// </summary>
         /// <returns></returns>
-        public ProjectDeleteResponse UpdateStausProject(ProjectDeleteRequest request)
+        public ProjectUpdateResponse UpdateStausProject(ProjectUpdateRequest request)
         {
-            ProjectDeleteResponse response = new ProjectDeleteResponse();
+            ProjectUpdateResponse response = new ProjectUpdateResponse();
 
             return response;
         }

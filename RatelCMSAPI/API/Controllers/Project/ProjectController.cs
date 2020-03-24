@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using BLL;
 using Model;
+using SDKClient;
 
 namespace API.Controllers
 {
@@ -17,16 +18,28 @@ namespace API.Controllers
         /// 项目参与人员绑定
         /// 根据所在职位部门
         /// </summary>
-        
-        public List<PositionInfo> BandProjectbinding(string DepartId)
+        public UserGetProjectResponse BandProjectbinding(UserGetProjectRequest request)
         {
-            return bll.BandProjectbinding(DepartId);
+            return bll.BandProjectbinding(request);
         }
 
         [HttpPost]
-        public List<ProjectInfo> ProjectShow(int PageIndex, int PageSize, string ProjectNumber, int Projectstage, out int TotalCount)
+        /// <summary>
+        /// 新增项目
+        /// </summary>
+        public ProjectAddResponse AddProject(ProjectAddRequest request)
         {
-            return bll.ProjectShow(PageIndex, PageSize, ProjectNumber, Projectstage, out TotalCount);
+            return bll.AddProject(request);
+        }
+
+        [HttpPost]
+        /// <summary>
+        /// 修改项目
+        /// </summary>
+        /// <returns></returns>
+        public ProjectUpdateResponse UpdateProject(ProjectUpdateRequest request)
+        {
+            return bll.UpdateProject(request);
         }
     }
 }
