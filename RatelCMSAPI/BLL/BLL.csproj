@@ -43,12 +43,11 @@
   <ItemGroup>
     <Compile Include="Project\ProjectBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Talent\RecordBll.cs" />
-    <Compile Include="Talent\TalentBll.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Contractmanagement\" />
     <Folder Include="Reimbursement\" />
+    <Folder Include="Talent\" />
     <Folder Include="User\" />
   </ItemGroup>
   <ItemGroup>
