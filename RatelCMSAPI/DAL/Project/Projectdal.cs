@@ -99,8 +99,8 @@ namespace DAL
         /// <returns></returns>
         public List<StagePlanInfo> StageDetail(int ProjectStageId)
         {
-            string sql = "select * from StagePlanInfo where ProjectStageId=@ProjectStageId";
-            return DapperHelper<StagePlanInfo>.Query(sql,new { ProjectStageId = ProjectStageId });
+            string sql = "select * from StagePlanInfo where ProjectStageId=@projectStageId";
+            return DapperHelper<StagePlanInfo>.Query(sql,new { projectStageId = ProjectStageId });
         }
 
         /// <summary>
@@ -118,8 +118,8 @@ namespace DAL
         /// </summary>
         public int DeleteStage(int PlanId)
         {
-            string sql = "update StagePlanInfo set StageStaus =0 where PlanId=@PlanId";
-            return DapperHelper<StagePlanInfo>.Execute(sql, new { PlanId= PlanId });
+            string sql = "update StagePlanInfo set StageStaus =0 where PlanId=@planId";
+            return DapperHelper<StagePlanInfo>.Execute(sql, new { planId= PlanId });
         }
 
         /// <summary>
@@ -148,8 +148,8 @@ namespace DAL
         /// <returns></returns>
         public List<ProjectInfo> BandProjectStaus(int ProjectId)
         {
-            string sql = "select P.Projectstage,s.StageName from ProjectInfo p join StagePlanInfo s on p.Projectstage=s.ProjectStageId where s.ProjectStageId=@ProjectId";
-            return DapperHelper<ProjectInfo>.Query(sql,new { ProjectId= ProjectId });
+            string sql = "select P.Projectstage,s.StageName from ProjectInfo p join StagePlanInfo s on p.Projectstage=s.ProjectStageId where s.ProjectStageId=projectId";
+            return DapperHelper<ProjectInfo>.Query(sql,new { projectId= ProjectId });
         }
 
         /// <summary>
@@ -158,8 +158,8 @@ namespace DAL
         /// <returns></returns>
         public int UpdateStausProject(int ProjectId)
         {
-            string sql = "update ProjectInfo set ProjectStaus=0 where ProjectId=@ProjectId ";
-            return DapperHelper<ProjectInfo>.Execute(sql,new { ProjectId= ProjectId });
+            string sql = "update ProjectInfo set ProjectStaus=0 where ProjectId=@projectId ";
+            return DapperHelper<ProjectInfo>.Execute(sql,new { projectId= ProjectId });
         }
     }
 }
