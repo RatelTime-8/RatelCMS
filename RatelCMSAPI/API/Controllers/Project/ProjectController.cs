@@ -22,5 +22,11 @@ namespace API.Controllers
         {
             return bll.BandProjectbinding(DepartId);
         }
+
+        [HttpPost]
+        public List<ProjectInfo> ProjectShow(int PageIndex, int PageSize, string ProjectNumber, int Projectstage, out int TotalCount)
+        {
+            return bll.ProjectShow(PageIndex, PageSize, ProjectNumber, Projectstage, out TotalCount);
+        }
     }
 }

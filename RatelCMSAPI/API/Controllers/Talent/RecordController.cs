@@ -4,7 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
-using BLL.Talent;
+using BLL;
 using Model.Talents;
 namespace API.Controllers.Talent
 {

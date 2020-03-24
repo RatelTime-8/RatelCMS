@@ -19,5 +19,10 @@ namespace BLL
         {
             return dal.BandProjectbinding(DepartId);
         }
+
+        public List<ProjectInfo> ProjectShow(int PageIndex, int PageSize, string ProjectNumber, int Projectstage, out int TotalCount)
+        {
+            return dal.ProjectShow(PageIndex,PageSize,ProjectNumber,Projectstage,out TotalCount);
+        }
     }
 }

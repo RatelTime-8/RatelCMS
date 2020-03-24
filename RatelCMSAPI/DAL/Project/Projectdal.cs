@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper;
 using Model;
 
 namespace DAL
@@ -64,10 +66,21 @@ namespace DAL
         /// 分页显示所有项目
         /// </summary>
         /// <returns></returns>
-        ////public List<ProjectInfo> ProjectShow()
-        ////{
-        ////    return DapperHelper<ProjectInfo>
-        ////}
+        public List<ProjectInfo> ProjectShow(int PageIndex,int PageSize,string ProjectNumber,int Projectstage,out int TotalCount)
+        {
+            var p = new DynamicParameters();
+            p.Add("@Pageindex",PageIndex);
+            p.Add("@PageSize",PageSize);
+            p.Add("@ProjectNumber",ProjectNumber);
+            p.Add("@Projectstage",Projectstage);
+            p.Add("@TotalCount",0,DbType.Int32,ParameterDirection.Output);
+
+            var list= DapperHelper<ProjectInfo>.ExecutePro("dbo.P_ProjectShow",p);
+
+            TotalCount = p.Get<int>("@TotalCount");
+
+            return list;
+        }
 
         /// <summary>
         /// 查询项目详情
