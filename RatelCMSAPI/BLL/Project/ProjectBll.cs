@@ -217,7 +217,7 @@ namespace BLL
 
             else
             {
-                response.Message = "夹断添加失败";
+                response.Message = "阶段添加失败";
                 response.IsRegistSuccess = false;
             }
 
@@ -227,9 +227,25 @@ namespace BLL
         /// <summary>
         /// 逻辑删除修改阶段
         /// </summary>
-        public ProjectUpdateResponse DeleteStage(ProjectUpdateRequest request)
+        public StageUpdateResponse DeleteStage(StageUpdaterequest request)
         {
-            ProjectUpdateResponse response = new ProjectUpdateResponse();
+            StageUpdateResponse response = new StageUpdateResponse();
+
+            var PlanId = request.PlanId;
+
+            var res = dal.DeleteStage(PlanId);
+
+            if (res > 0)
+            {
+                response.Message = "逻辑删除该阶段成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "逻辑删除该阶段失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }

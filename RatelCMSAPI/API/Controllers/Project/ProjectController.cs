@@ -67,7 +67,7 @@ namespace API.Controllers
         /// </summary>
         /// <param name="ProjectStageId"></param>
         /// <returns></returns>
-        public ProjectGetResponse StageDetail(ProjectGetRequest request)
+        public StageGetResponse StageDetail(StageGetRequest request)
         {
             return bll.StageDetail(request);
         }
@@ -86,7 +86,7 @@ namespace API.Controllers
         /// <summary>
         /// 逻辑删除修改阶段
         /// </summary>
-        public ProjectUpdateResponse DeleteStage(ProjectUpdateRequest request)
+        public StageUpdateResponse DeleteStage(StageUpdaterequest request)
         {
             return bll.DeleteStage(request);
         }

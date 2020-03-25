@@ -50,6 +50,7 @@
     <Compile Include="Request\Contractmanagement\ContraUpdateRequest.cs" />
     <Compile Include="Request\Project\StageAddRequest.cs" />
     <Compile Include="Request\Project\StageGetRequest.cs" />
+    <Compile Include="Request\Project\StageUpdaterequest.cs" />
     <Compile Include="Request\Project\UserGetProjectRequest.cs" />
     <Compile Include="Request\Reimbursement\BurseAddRequest.cs" />
     <Compile Include="Request\Reimbursement\BurseDeleteRequest.cs" />
@@ -74,6 +75,7 @@
     <Compile Include="Response\Contractmanagement\ContraUpdateResponse.cs" />
     <Compile Include="Response\Project\StageAddResponse.cs" />
     <Compile Include="Response\Project\StageGetResponse.cs" />
+    <Compile Include="Response\Project\StageUpdateResponse.cs" />
     <Compile Include="Response\Project\UserGetProjectResponse.cs" />
     <Compile Include="Response\Reimbursement\BurseAddResponse.cs" />
     <Compile Include="Response\Reimbursement\BurseDeleteResponse.cs" />
