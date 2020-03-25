@@ -46,7 +46,7 @@ namespace API.Controllers
         /// 分页显示所有项目
         /// </summary>
         /// <returns></returns>
-        public ProjectGetResponse ProjectShow(ProjectGetRequest request)
+        public ProjectProcGetResponse ProjectShow(ProjectProcGetRequest request)
         {
             return bll.ProjectShow(request);
         }
@@ -116,7 +116,7 @@ namespace API.Controllers
         /// 绑定项目状态
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse BandProjectStaus(ProjectUpdateRequest request)
+        public ProjectBandGetResponse BandProjectStaus(ProjectBandGetRequest request)
         {
             return bll.BandProjectStaus(request);
         }

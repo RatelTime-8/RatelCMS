@@ -125,11 +125,27 @@ namespace BLL
         /// 分页显示所有项目
         /// </summary>
         /// <returns></returns>
-        public ProjectGetResponse ProjectShow(ProjectGetRequest request)
+        public ProjectProcGetResponse ProjectShow(ProjectProcGetRequest request)
         {
-            ProjectGetResponse response = new ProjectGetResponse();
+            ProjectProcGetResponse response = new ProjectProcGetResponse();
 
+            var PageIndex = request.PageIndex;
+            var PageSize = request.PageSize;
+            var TotalCount = request.TotalCount;
+            var ProjectNumber = request.ProjectNumber;
+            var Projectstage = request.Projectstage;
 
+            var res = dal.ProjectShow(PageIndex,PageSize,ProjectNumber,Projectstage,out TotalCount);
+            if (res.Count > 0)
+            {
+                response.Message = "项目执行成功";
+                response.IsRegistSuccess = true;
+            }
+            else
+            {
+                response.Message = "项目执行失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }
@@ -319,11 +335,25 @@ namespace BLL
         /// 绑定项目状态
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse BandProjectStaus(ProjectUpdateRequest request)
+        public ProjectBandGetResponse BandProjectStaus(ProjectBandGetRequest request)
         {
-            ProjectUpdateResponse response = new ProjectUpdateResponse();
+            ProjectBandGetResponse response = new ProjectBandGetResponse();
 
+            var ProjectId = request.ProjectId;
 
+            var res = dal.BandProjectStaus(ProjectId);
+
+            if (res.Count > 0)
+            {
+                response.Message = "阶段绑定成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "阶段绑定失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }
