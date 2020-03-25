@@ -121,9 +121,10 @@ namespace DAL
         /// <returns></returns>
         public List<ProjectInfo> ProjectDetail(string ProjectNumber)
         {
-            string sql = "select * from ProjectInfo where ProjectNumber=@ProjectNumber";
-            return DapperHelper<ProjectInfo>.Query(sql, new { ProjectNumber = ProjectNumber });
+            string sql = "select * from ProjectInfo where ProjectNumber=@projectNumber";
+            return DapperHelper<ProjectInfo>.Query(sql, new { projectNumber = ProjectNumber });
         }
+      
         /// <summary>
         /// 项目阶段详情
         /// </summary>
@@ -141,7 +142,12 @@ namespace DAL
         /// <returns></returns>
         public int AddStage(StagePlanInfo info)
         {
-            string sql = "insert into StagePlanInfo values(@StageName,@StageStartTime,@StageFinishTime,@StageStaffName,@ProjectStageId,1)";
+            string sql = @"insert into StagePlanInfo 
+                         (StageName,StageStartTime,StageFinishTime,
+                          StageStaffName,ProjectStageId,StageStaus)
+                          values(@StageName,@StageStartTime,
+                          @StageFinishTime,@StageStaffName,
+                          @ProjectStageId,@StageStaus)";
             return DapperHelper<StagePlanInfo>.Execute(sql, info);
         }
 
@@ -160,7 +166,7 @@ namespace DAL
         /// <returns></returns>
         public int UpdateStage(StagePlanInfo info)
         {
-            string sql = "update StagePlanInfo set StageName=@StageName ,StageStartTime=@StageStartTime,StageFinishTime=@StageFinishTime,StageStaffName=@StageStaffName,ProjectStageId=@ProjectStageId where PlanId=@PlanId";
+            string sql = "update StagePlanInfo set StageName=@StageName ,StageStartTime=@StageStartTime,StageFinishTime=@StageFinishTime,StageStaffName=@StageStaffName,ProjectStageId=@ProjectStageId,StageStaus=@StageStaus where PlanId=@PlanId";
             return DapperHelper<StagePlanInfo>.Execute(sql, info);
         }
     }

@@ -47,7 +47,7 @@ namespace API.Controllers
         /// 分页显示所有项目
         /// </summary>
         /// <returns></returns>
-        public ProjectGetResponse ProjectShow(ProjectGetRequest request)
+        public ProjectProcGetResponse ProjectShow(ProjectProcGetRequest request)
         {
             return bll.ProjectShow(request);
         }
@@ -68,7 +68,7 @@ namespace API.Controllers
         /// </summary>
         /// <param name="ProjectStageId"></param>
         /// <returns></returns>
-        public ProjectGetResponse StageDetail(ProjectGetRequest request)
+        public StageGetResponse StageDetail(StageGetRequest request)
         {
             return bll.StageDetail(request);
         }
@@ -78,7 +78,7 @@ namespace API.Controllers
         /// 新增阶段
         /// </summary>
         /// <returns></returns>
-        public ProjectAddResponse AddStage(ProjectAddRequest request)
+        public StageAddResponse AddStage(StageAddRequest request)
         {
             return bll.AddStage(request);
         }
@@ -87,7 +87,7 @@ namespace API.Controllers
         /// <summary>
         /// 逻辑删除修改阶段
         /// </summary>
-        public ProjectUpdateResponse DeleteStage(ProjectUpdateRequest request)
+        public StageStausUpdateResponse DeleteStage(StageStausUpdaterequest request)
         {
             return bll.DeleteStage(request);
         }
@@ -97,7 +97,7 @@ namespace API.Controllers
         /// 修改阶段
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse UpdateStage(ProjectUpdateRequest request)
+        public StageUpdateResponse UpdateStage(StageUpdaterequest request)
         {
             return bll.UpdateStage(request);
         }
@@ -107,7 +107,7 @@ namespace API.Controllers
         /// 修改项目状态
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse UpdateProjectStaus(ProjectUpdateRequest request)
+        public ProjectStausUpdateReponse UpdateProjectStaus(ProjectStausUpdateRequest request)
         {
             return bll.UpdateProjectStaus(request);
         }
@@ -117,7 +117,7 @@ namespace API.Controllers
         /// 绑定项目状态
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse BandProjectStaus(ProjectUpdateRequest request)
+        public ProjectBandGetResponse BandProjectStaus(ProjectBandGetRequest request)
         {
             return bll.BandProjectStaus(request);
         }
@@ -127,7 +127,7 @@ namespace API.Controllers
         /// 逻辑删除项目
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse UpdateStausProject(ProjectUpdateRequest request)
+        public ProjectStausDeleteResponse UpdateStausProject(ProjectStausDeleteRequest request)
         {
             return bll.UpdateStausProject(request);
         }

@@ -8,6 +8,7 @@ namespace SDKClient
 {
     public class ProjectGetRequest : BaseRequest
     {
+        public string ProjectNumber { get; set; }
         public override string GetApiName()
         {
             return "/api/User/GetUser";
