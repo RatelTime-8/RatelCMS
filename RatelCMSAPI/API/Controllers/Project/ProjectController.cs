@@ -77,7 +77,7 @@ namespace API.Controllers
         /// 新增阶段
         /// </summary>
         /// <returns></returns>
-        public ProjectAddResponse AddStage(ProjectAddRequest request)
+        public StageAddResponse AddStage(StageAddRequest request)
         {
             return bll.AddStage(request);
         }

@@ -129,6 +129,8 @@ namespace BLL
         {
             ProjectGetResponse response = new ProjectGetResponse();
 
+
+
             return response;
         }
 
@@ -140,6 +142,22 @@ namespace BLL
         {
             ProjectGetResponse response = new ProjectGetResponse();
 
+            var ProjectNumber = request.ProjectNumber;
+
+            var result = dal.ProjectDetail(ProjectNumber);
+
+            if (result.Count>0)
+            {
+                response.Message = "项目详情调用成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "项目详情调用失败";
+                response.IsRegistSuccess = false;
+            }
+
             return response;
         }
 
@@ -148,9 +166,25 @@ namespace BLL
         /// </summary>
         /// <param name="ProjectStageId"></param>
         /// <returns></returns>
-        public ProjectGetResponse StageDetail(ProjectGetRequest request)
+        public StageGetResponse StageDetail(StageGetRequest request)
         {
-            ProjectGetResponse response = new ProjectGetResponse();
+            StageGetResponse response = new StageGetResponse();
+
+            var projectstageId = request.ProjectStageId;
+
+            var result = dal.StageDetail(projectstageId);
+
+            if (result.Count>0)
+            {
+                response.Message = "项目阶段详情调用成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "项目阶段详情调用失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }
@@ -159,9 +193,33 @@ namespace BLL
         /// 新增阶段
         /// </summary>
         /// <returns></returns>
-        public ProjectAddResponse AddStage(ProjectAddRequest request)
+        public StageAddResponse AddStage(StageAddRequest request)
         {
-            ProjectAddResponse response = new ProjectAddResponse();
+            StageAddResponse response = new StageAddResponse();
+
+            StagePlanInfo info = new StagePlanInfo()
+            {
+                ProjectStageId =request.ProjectStageId,
+                StageName = request.StageName,
+                StageFinishTime = request.StageFinishTime,
+                StageStaffName = request.StageStaffName,
+                StageStartTime = request.StageStartTime,
+                StageStaus = 1
+            };
+
+            var res = dal.AddStage(info);
+
+            if (res>0)
+            {
+                response.Message = "阶段添加成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "夹断添加失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }
