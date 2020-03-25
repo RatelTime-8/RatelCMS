@@ -63,6 +63,8 @@
     <Compile Include="Request\User\UserAddRequest.cs" />
     <Compile Include="Request\User\UserDeleteRequest.cs" />
     <Compile Include="Request\User\UserGetRequest.cs" />
+    <Compile Include="Request\User\UserLoginRequest.cs" />
+    <Compile Include="Request\User\UserRegistRequest.cs" />
     <Compile Include="Request\User\UserUpdateRequest.cs" />
     <Compile Include="Response\Contractmanagement\ContraAddResponse.cs" />
     <Compile Include="Response\Contractmanagement\ContraDeleteResponse.cs" />
@@ -80,11 +82,15 @@
     <Compile Include="Response\Project\ProjectAddResponse.cs" />
     <Compile Include="Response\Project\ProjectGetResponse.cs" />
     <Compile Include="Response\Project\ProjectUpdateResponse.cs" />
+    <Compile Include="Response\User\UserLoginResponse.cs" />
     <Compile Include="Response\User\UserAddResponse.cs" />
     <Compile Include="Response\User\UserDeleteResponse.cs" />
     <Compile Include="Response\User\UserGetResponse.cs" />
+    <Compile Include="Response\User\UserRegistReponse.cs" />
     <Compile Include="Response\User\UserUpdateResponse.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ApiSDKClient功能说明.txt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
