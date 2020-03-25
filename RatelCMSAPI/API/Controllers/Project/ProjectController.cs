@@ -20,7 +20,7 @@ namespace API.Controllers
         /// </summary>
         public UserGetProjectResponse BandProjectbinding(UserGetProjectRequest request)
         {
-            return ProjectBll.Instance.BandProjectbinding(request);
+            return bll.BandProjectbinding(request);
         }
 
         [HttpPost]
@@ -29,7 +29,7 @@ namespace API.Controllers
         /// </summary>
         public ProjectAddResponse AddProject(ProjectAddRequest request)
         {
-            return ProjectBll.Instance.AddProject(request);
+            return bll.AddProject(request);
         }
 
         [HttpPost]
@@ -39,7 +39,7 @@ namespace API.Controllers
         /// <returns></returns>
         public ProjectUpdateResponse UpdateProject(ProjectUpdateRequest request)
         {
-            return ProjectBll.Instance.UpdateProject(request);
+            return bll.UpdateProject(request);
         }
     }
 }
