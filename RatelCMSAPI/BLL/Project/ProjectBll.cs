@@ -9,7 +9,7 @@ using Model;
 
 namespace BLL
 {
-    public class ProjectBll
+    public sealed class ProjectBll:BaseBll<ProjectBll>
     {
         Projectdal dal = new Projectdal();
 
