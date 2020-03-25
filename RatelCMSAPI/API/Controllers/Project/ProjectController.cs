@@ -11,6 +11,7 @@ namespace API.Controllers
 {
     public class ProjectController : ApiController
     {
+
         ProjectBll bll = new ProjectBll();
         [HttpPost]
         /// <summary>
@@ -19,7 +20,7 @@ namespace API.Controllers
         /// </summary>
         public UserGetProjectResponse BandProjectbinding(UserGetProjectRequest request)
         {
-            return bll.BandProjectbinding(request);
+            return ProjectBll.Instance.BandProjectbinding(request);
         }
 
         [HttpPost]
@@ -28,7 +29,7 @@ namespace API.Controllers
         /// </summary>
         public ProjectAddResponse AddProject(ProjectAddRequest request)
         {
-            return bll.AddProject(request);
+            return ProjectBll.Instance.AddProject(request);
         }
 
         [HttpPost]

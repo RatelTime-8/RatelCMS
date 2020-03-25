@@ -9,10 +9,9 @@ using Model;
 
 namespace BLL
 {
-    public sealed class ProjectBll:BaseBll<ProjectBll>
+    public sealed class ProjectBll : BaseBll<ProjectBll>
     {
         Projectdal dal = new Projectdal();
-
         /// <summary>
         /// 项目参与人员绑定
         /// 根据所在职位部门

@@ -8,11 +8,17 @@ namespace SDKClient
 {
    public class UserLoginRequest:BaseRequest
     {
-        public string Phone { get; set; }
-        public string Pass { get; set; }
+        /// <summary>
+        /// 账号
+        /// </summary>
+        public string UserPhone { get; set; }
+        /// <summary>
+        /// 密码
+        /// </summary>
+        public string UserPass;
         public override string GetApiName()
         {
-            return "/api/User/UserLoginUser";
+            return "/api/User/UserLogin";
         }
     }
 }
