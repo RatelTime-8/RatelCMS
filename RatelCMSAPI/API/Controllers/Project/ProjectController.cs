@@ -86,7 +86,7 @@ namespace API.Controllers
         /// <summary>
         /// 逻辑删除修改阶段
         /// </summary>
-        public StageUpdateResponse DeleteStage(StageUpdaterequest request)
+        public StageStausUpdateResponse DeleteStage(StageStausUpdaterequest request)
         {
             return bll.DeleteStage(request);
         }
@@ -96,7 +96,7 @@ namespace API.Controllers
         /// 修改阶段
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse UpdateStage(ProjectUpdateRequest request)
+        public StageUpdateResponse UpdateStage(StageUpdaterequest request)
         {
             return bll.UpdateStage(request);
         }
@@ -106,7 +106,7 @@ namespace API.Controllers
         /// 修改项目状态
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse UpdateProjectStaus(ProjectUpdateRequest request)
+        public ProjectStausUpdateReponse UpdateProjectStaus(ProjectStausUpdateRequest request)
         {
             return bll.UpdateProjectStaus(request);
         }
@@ -126,7 +126,7 @@ namespace API.Controllers
         /// 逻辑删除项目
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse UpdateStausProject(ProjectUpdateRequest request)
+        public ProjectStausDeleteResponse UpdateStausProject(ProjectStausDeleteRequest request)
         {
             return bll.UpdateStausProject(request);
         }

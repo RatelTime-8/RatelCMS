@@ -227,9 +227,9 @@ namespace BLL
         /// <summary>
         /// 逻辑删除修改阶段
         /// </summary>
-        public StageUpdateResponse DeleteStage(StageUpdaterequest request)
+        public StageStausUpdateResponse DeleteStage(StageStausUpdaterequest request)
         {
-            StageUpdateResponse response = new StageUpdateResponse();
+            StageStausUpdateResponse response = new StageStausUpdateResponse();
 
             var PlanId = request.PlanId;
 
@@ -254,9 +254,33 @@ namespace BLL
         /// 修改阶段
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse UpdateStage(ProjectUpdateRequest request)
+        public StageUpdateResponse UpdateStage(StageUpdaterequest request)
         {
-            ProjectUpdateResponse response = new ProjectUpdateResponse();
+            StageUpdateResponse response = new StageUpdateResponse();
+
+            StagePlanInfo info = new StagePlanInfo()
+            {
+                PlanId = request.PlanId,
+                StageName = request.StageName,
+                ProjectStageId = request.ProjectStageId,
+                StageStaus = 1,
+                StageStartTime = request.StageStartTime,
+                StageFinishTime = request.StageFinishTime,
+                StageStaffName = request.StageStaffName
+        };
+
+            var res = dal.UpdateStage(info);
+
+            if (res > 0)
+            {
+                response.Message = "阶段修改成功";
+                response.IsRegistSuccess = true;
+            }
+            else
+            {
+                response.Message = "阶段修改失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response; 
         }
@@ -265,9 +289,28 @@ namespace BLL
         /// 修改项目状态
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse UpdateProjectStaus(ProjectUpdateRequest request)
+        public ProjectStausUpdateReponse UpdateProjectStaus(ProjectStausUpdateRequest request)
         {
-            ProjectUpdateResponse response = new ProjectUpdateResponse();
+            ProjectStausUpdateReponse response = new ProjectStausUpdateReponse();
+
+            ProjectInfo info = new ProjectInfo()
+            {
+                ProjectId = request.ProjectId,
+                ProjectStage = request.ProjectStage
+            };
+
+            var res = dal.UpdateProjectStaus(info);
+
+            if (res > 0)
+            {
+                response.Message = "项目状态修改成功";
+                response.IsRegistSuccess = true;
+            }
+            else
+            {
+                response.Message = "项目状态修改失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }
@@ -280,6 +323,8 @@ namespace BLL
         {
             ProjectUpdateResponse response = new ProjectUpdateResponse();
 
+
+
             return response;
         }
 
@@ -287,9 +332,25 @@ namespace BLL
         /// 逻辑删除项目
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse UpdateStausProject(ProjectUpdateRequest request)
+        public ProjectStausDeleteResponse UpdateStausProject(ProjectStausDeleteRequest request)
         {
-            ProjectUpdateResponse response = new ProjectUpdateResponse();
+            ProjectStausDeleteResponse response = new ProjectStausDeleteResponse();
+
+            var ProjectId = request.ProjectId;
+
+            var res = dal.UpdateStausProject(ProjectId);
+
+
+            if (res > 0)
+            {
+                response.Message = "逻辑删除项目成功";
+                response.IsRegistSuccess = true;
+            }
+            else
+            {
+                response.Message = "逻辑删除项目失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }

@@ -166,7 +166,7 @@ namespace DAL
         /// <returns></returns>
         public int UpdateStage(StagePlanInfo info)
         {
-            string sql = "update StagePlanInfo set StageName=@StageName ,StageStartTime=@StageStartTime,StageFinishTime=@StageFinishTime,StageStaffName=@StageStaffName,ProjectStageId=@ProjectStageId where PlanId=@PlanId";
+            string sql = "update StagePlanInfo set StageName=@StageName ,StageStartTime=@StageStartTime,StageFinishTime=@StageFinishTime,StageStaffName=@StageStaffName,ProjectStageId=@ProjectStageId,StageStaus=@StageStaus where PlanId=@PlanId";
             return DapperHelper<StagePlanInfo>.Execute(sql, info);
         }
     }

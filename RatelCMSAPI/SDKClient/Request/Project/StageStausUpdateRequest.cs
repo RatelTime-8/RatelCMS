@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BLL
+namespace SDKClient
 {
-   public sealed  class Userbll:BaseBll<Userbll>
+    public class StageStausUpdaterequest : BaseRequest
     {
-       
+        public int PlanId { get; set; }
     }
 }
