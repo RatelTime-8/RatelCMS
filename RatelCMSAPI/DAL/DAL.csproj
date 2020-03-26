@@ -45,9 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\BLL\User\Userbll.cs">
-      <Link>Userbll.cs</Link>
-    </Compile>
     <Compile Include="Contractmanagement\Contractmanagementdal.cs" />
     <Compile Include="Helper\DapperHelper.cs" />
     <Compile Include="Helper\DBHelper.cs" />
