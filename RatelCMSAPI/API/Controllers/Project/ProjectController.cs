@@ -39,7 +39,7 @@ namespace API.Controllers
         /// <returns></returns>
         public ProjectUpdateResponse UpdateProject(ProjectUpdateRequest request)
         {
-            return bll.UpdateProject(request);
+            return ProjectBll.Instance.UpdateProject(request);
         }
 
         [HttpPost]
@@ -49,7 +49,7 @@ namespace API.Controllers
         /// <returns></returns>
         public ProjectProcGetResponse ProjectShow(ProjectProcGetRequest request)
         {
-            return bll.ProjectShow(request);
+            return ProjectBll.Instance.ProjectShow(request);
         }
 
         [HttpPost]
@@ -59,7 +59,7 @@ namespace API.Controllers
         /// <returns></returns>
         public ProjectGetResponse ProjectDetail(ProjectGetRequest request)
         {
-            return bll.ProjectDetail(request);
+            return ProjectBll.Instance.ProjectDetail(request);
         }
 
         [HttpPost]
@@ -70,7 +70,7 @@ namespace API.Controllers
         /// <returns></returns>
         public StageGetResponse StageDetail(StageGetRequest request)
         {
-            return bll.StageDetail(request);
+            return ProjectBll.Instance.StageDetail(request);
         }
 
         [HttpPost]
@@ -80,7 +80,7 @@ namespace API.Controllers
         /// <returns></returns>
         public StageAddResponse AddStage(StageAddRequest request)
         {
-            return bll.AddStage(request);
+            return ProjectBll.Instance.AddStage(request);
         }
 
         [HttpPost]
@@ -89,7 +89,7 @@ namespace API.Controllers
         /// </summary>
         public StageStausUpdateResponse DeleteStage(StageStausUpdaterequest request)
         {
-            return bll.DeleteStage(request);
+            return ProjectBll.Instance.DeleteStage(request);
         }
 
         [HttpPost]
@@ -99,7 +99,7 @@ namespace API.Controllers
         /// <returns></returns>
         public StageUpdateResponse UpdateStage(StageUpdaterequest request)
         {
-            return bll.UpdateStage(request);
+            return ProjectBll.Instance.UpdateStage(request);
         }
 
         [HttpPost]
@@ -109,7 +109,7 @@ namespace API.Controllers
         /// <returns></returns>
         public ProjectStausUpdateReponse UpdateProjectStaus(ProjectStausUpdateRequest request)
         {
-            return bll.UpdateProjectStaus(request);
+            return ProjectBll.Instance.UpdateProjectStaus(request);
         }
 
         [HttpPost]
@@ -119,7 +119,7 @@ namespace API.Controllers
         /// <returns></returns>
         public ProjectBandGetResponse BandProjectStaus(ProjectBandGetRequest request)
         {
-            return bll.BandProjectStaus(request);
+            return ProjectBll.Instance.BandProjectStaus(request);
         }
 
         [HttpPost]
@@ -129,7 +129,7 @@ namespace API.Controllers
         /// <returns></returns>
         public ProjectStausDeleteResponse UpdateStausProject(ProjectStausDeleteRequest request)
         {
-            return bll.UpdateStausProject(request);
+            return ProjectBll.Instance.UpdateStausProject(request);
         }
     }
 }
