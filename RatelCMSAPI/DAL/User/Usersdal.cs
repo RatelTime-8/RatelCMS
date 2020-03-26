@@ -71,10 +71,10 @@ namespace DAL
         /// </summary>
         /// <param name="UserPhone"></param>
         /// <returns></returns>
-        public UserInfo GetUserInfoSalt(string UserPhone)
+        public string GetUserInfoSalt(string UserPhone)
         {
             string sql = $" select UserSalt from UserInfo where UserPhone=@UserPhone and Status=1 ";
-            return DapperHelper<UserInfo>.QuerySingle(sql, new { UserPhone = UserPhone });
+            return DapperHelper<string>.QuerySingle(sql, new { UserPhone = UserPhone });
 
         }
     }
