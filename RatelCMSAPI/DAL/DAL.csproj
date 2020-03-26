@@ -45,12 +45,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="..\BLL\Project\ProjectBll.cs">
-      <Link>Project\ProjectBll.cs</Link>
-    </Compile>
-    <Compile Include="..\BLL\User\Userbll.cs">
-      <Link>Userbll.cs</Link>
-    </Compile>
     <Compile Include="Contractmanagement\Contractmanagementdal.cs" />
     <Compile Include="Helper\DapperHelper.cs" />
     <Compile Include="Helper\DBHelper.cs" />
@@ -70,6 +64,10 @@
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{8f32f212-6181-4db9-9a88-46b86980d582}</Project>
       <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SDKClient\SDKClient.csproj">
+      <Project>{8F32E304-3A2C-4970-BBD8-F56CC0917432}</Project>
+      <Name>SDKClient</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

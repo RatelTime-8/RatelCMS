@@ -30,8 +30,8 @@ namespace DAL
         {
             int res = 0;
             string sql = $@"INSERT INTO [dbo].[UserInfo]
-                          ([UserId]
-                          ,[UserPhone]
+                          (
+                           [UserPhone]
                           ,[UserName]
                           ,[UserPass]
                           ,[UserSalt]
@@ -45,7 +45,7 @@ namespace DAL
                            @UserPhone
                           ,@UserName
                           ,@UserPass
-                          ,@UaerSalt
+                          ,@UserSalt
                           ,1
                           ,GETDATE()
                           ,GETDATE()
