@@ -17,6 +17,7 @@ namespace API.Controllers
         /// <summary>
         /// 项目参与人员绑定
         /// 根据所在职位部门
+        /// 加入单例
         /// </summary>
         public UserGetProjectResponse BandProjectbinding(UserGetProjectRequest request)
         {
