@@ -16,7 +16,7 @@ namespace DAL.Talent
         /// <returns></returns>
         public int AddRecoed(RecordModel model)
         {
-            string sql = string.Format("insert into Record values('{0}','{1}','{2}','{3}','{4}','{5})", model.Organization, model.Position, model.Pay, model.GongNeiR, model.LiZhi, model.RTime);
+            string sql = string.Format("insert into Record values('{0}','{1}','{2}','{3}','{4}','{5}')", model.Organization, model.Position, model.Pay, model.GongNeiR, model.LiZhi,model.RTime);
             return DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
@@ -30,7 +30,7 @@ namespace DAL.Talent
         }
         public int DeleteRecoed(int Id)
         {
-            string sql = string.Format("delete from Recoed where RId=" + Id);
+            string sql = string.Format("delete from Record where RId=" + Id);
             return DBHelper.ExecuteNonQuery(sql);
         }
     }

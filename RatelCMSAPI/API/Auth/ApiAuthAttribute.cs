@@ -6,7 +6,7 @@ using System.Linq;
 using System.Web.Http;
 using System.Web.Http.Controllers;
 
-namespace FrontendApi
+namespace API
 {
     /// <summary>
     /// 自定义一个api的权限过滤器
@@ -21,6 +21,7 @@ namespace FrontendApi
             //3.符合要求，则验证通过
             //4.不符合要求，则验证失败
             var authHeader = from t in actionContext.Request.Headers where t.Key == "token" select t.Value.FirstOrDefault();
+
             if (authHeader != null)
             {
                 string token = authHeader.FirstOrDefault();

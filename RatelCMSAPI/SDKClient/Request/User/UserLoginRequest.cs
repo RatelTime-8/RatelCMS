@@ -15,7 +15,7 @@ namespace SDKClient
         /// <summary>
         /// 密码
         /// </summary>
-        public string UserPass;
+        public string UserPass { get; set; }
         public override string GetApiName()
         {
             return "/api/User/UserLogin";

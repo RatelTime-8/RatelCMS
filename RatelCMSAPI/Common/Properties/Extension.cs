@@ -21,7 +21,7 @@ namespace Common
 
         public static long ToUnixTime(this DateTime dateTime)
         {
-            DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new DateTime(1970, 1, 1, 0, 0, 0, 0));
+            System.DateTime startTime = TimeZone.CurrentTimeZone.ToLocalTime(new System.DateTime(1970, 1, 1, 0, 0, 0, 0));
             long t = 0;
             //秒
             t = (long)(dateTime - startTime).TotalSeconds;

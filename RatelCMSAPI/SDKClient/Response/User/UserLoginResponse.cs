@@ -12,5 +12,8 @@ namespace SDKClient
         /// 是否登录成功
         /// </summary>
         public bool IsLoginSuccess { get; set; }
+        public int UserId { get; set; }
+        public string UName { get; set; }
+        public string UserPhone { get; set; }
     }
 }
