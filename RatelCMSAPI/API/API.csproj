@@ -164,6 +164,7 @@
     <Compile Include="Auth\ApiAuthAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Project\ProjectController.cs" />
+    <Compile Include="Controllers\Reimbursement\ReimController.cs" />
     <Compile Include="Controllers\Talent\RecordController.cs" />
     <Compile Include="Controllers\Talent\TalentsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -227,7 +228,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Contractmanagement\" />
-    <Folder Include="Controllers\Reimbursement\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>

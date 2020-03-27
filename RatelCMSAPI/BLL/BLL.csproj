@@ -44,11 +44,11 @@
     <Compile Include="BaseBll.cs" />
     <Compile Include="Project\ProjectBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reimbursement\ReimBll.cs" />
     <Compile Include="User\Userbll.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Contractmanagement\" />
-    <Folder Include="Reimbursement\" />
     <Folder Include="Talent\" />
   </ItemGroup>
   <ItemGroup>
