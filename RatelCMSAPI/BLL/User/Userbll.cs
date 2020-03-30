@@ -39,6 +39,9 @@ namespace BLL
             if (!string.IsNullOrEmpty(res.UserPhone))
             {
                 response.IsLoginSuccess = true;
+                response.UName = res.UserName;
+                response.UserPhone = res.UserPhone;
+                response.UserId = res.Id;    
             }
             else
             {
