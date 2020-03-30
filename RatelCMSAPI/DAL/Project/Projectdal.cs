@@ -37,7 +37,7 @@ namespace DAL
            values(@ProjectNumber,@ProjectName,
            @ProjectDescribe,@ProjectStaffId,
            @TechStaffId,@ProductStaffId,@TestStaffId,
-           @MarketStaffId,@Projectstage,@ProjectStartTime,
+           @MarketStaffId,@ProjectStage,@ProjectStartTime,
            @ProjectOutTime,@ProjectStaus)";
           return DapperHelper<ProjectInfo>.Execute(sql, info);
         }

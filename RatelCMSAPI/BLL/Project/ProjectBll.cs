@@ -23,9 +23,9 @@ namespace BLL
 
             int departId = request.DepartId;
 
-            var list = dal.BandProjectbinding(departId);
+            response.info = dal.BandProjectbinding(departId);
 
-            if (list.Count>0)
+            if (response.info.Count>0)
             {
                 response.Message = "部门人员查询成功";
                 response.IsRegistSuccess = true;
@@ -135,8 +135,8 @@ namespace BLL
             var ProjectNumber = request.ProjectNumber;
             var Projectstage = request.Projectstage;
 
-            var result = dal.ProjectShow(PageIndex,PageSize,ProjectNumber,Projectstage,out TotalCount);
-            if (result.Count > 0)
+            response.Project = dal.ProjectShow(PageIndex,PageSize,ProjectNumber,Projectstage,out TotalCount);
+            if (response.Project.Count > 0)
             {
                 response.Message = "项目执行成功";
                 response.IsRegistSuccess = true;
