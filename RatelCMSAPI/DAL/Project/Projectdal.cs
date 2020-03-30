@@ -166,8 +166,18 @@ namespace DAL
         /// <returns></returns>
         public int UpdateStage(StagePlanInfo info)
         {
-            string sql = "update StagePlanInfo set StageName=@StageName ,StageStartTime=@StageStartTime,StageFinishTime=@StageFinishTime,StageStaffName=@StageStaffName,ProjectStageId=@ProjectStageId,StageStaus=@StageStaus where PlanId=@PlanId";
+            string sql = "update StagePlanInfo set StageName=@StageName ,StageStartTime=@StageStartTime,StageFinishTime=@StageFinishTime,StageStaffName=@StageStaffName,StageStaus=@StageStaus where PlanId=@PlanId";
             return DapperHelper<StagePlanInfo>.Execute(sql, info);
+        }
+
+        /// <summary>
+        /// 数据反填
+        /// </summary>
+        /// <returns></returns>
+        public List<StagePlanInfo> StageBackFill(int PlanId)
+        {
+            string sql = "select * from StagePlanInfo where PlanId=@planId";
+            return DapperHelper<StagePlanInfo>.Query(sql,new { planId = PlanId });
         }
     }
 }

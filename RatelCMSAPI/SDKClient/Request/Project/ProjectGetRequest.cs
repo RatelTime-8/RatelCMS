@@ -11,7 +11,7 @@ namespace SDKClient
         public string ProjectNumber { get; set; }
         public override string GetApiName()
         {
-            return "/api/User/GetUser";
+            return "api/Project/ProjectDetail";
         }
 
     }

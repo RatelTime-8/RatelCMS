@@ -65,6 +65,16 @@ namespace API.Controllers
 
         [HttpPost]
         /// <summary>
+        /// 数据反填
+        /// </summary>
+        /// <returns></returns>
+        public StageBackFillGetResponse StageBackFill(StageBackFillGetRequest request)
+        {
+            return ProjectBll.Instance.StageBackFill(request);
+        }
+
+        [HttpPost]
+        /// <summary>
         /// 项目阶段详情
         /// </summary>
         /// <param name="ProjectStageId"></param>

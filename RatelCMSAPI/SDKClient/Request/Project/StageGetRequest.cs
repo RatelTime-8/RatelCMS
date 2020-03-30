@@ -9,5 +9,9 @@ namespace SDKClient
     public class StageGetRequest:BaseRequest
     {
         public int ProjectStageId { get; set; }
+        public override string GetApiName()
+        {
+            return "api/Project/StageDetail";
+        }
     }
 }

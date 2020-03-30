@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using DAL;
 using SDKClient;
 using Model;
+using Common;
 
 namespace BLL
 {
@@ -134,8 +135,8 @@ namespace BLL
             var ProjectNumber = request.ProjectNumber;
             var Projectstage = request.Projectstage;
 
-            var res = dal.ProjectShow(PageIndex,PageSize,ProjectNumber,Projectstage,out TotalCount);
-            if (res.Count > 0)
+            var result = dal.ProjectShow(PageIndex,PageSize,ProjectNumber,Projectstage,out TotalCount);
+            if (result.Count > 0)
             {
                 response.Message = "项目执行成功";
                 response.IsRegistSuccess = true;
@@ -159,9 +160,9 @@ namespace BLL
 
             var ProjectNumber = request.ProjectNumber;
 
-            var result = dal.ProjectDetail(ProjectNumber);
+            response.Project= dal.ProjectDetail(ProjectNumber);
 
-            if (result.Count>0)
+            if (response.Project.Count>0)
             {
                 response.Message = "项目详情调用成功";
                 response.IsRegistSuccess = true;
@@ -170,6 +171,33 @@ namespace BLL
             else
             {
                 response.Message = "项目详情调用失败";
+                response.IsRegistSuccess = false;
+            }
+
+            return response;
+        }
+
+        /// <summary>
+        /// 数据反填
+        /// </summary>
+        /// <returns></returns>
+        public StageBackFillGetResponse  StageBackFill(StageBackFillGetRequest request)
+        {
+            StageBackFillGetResponse response = new StageBackFillGetResponse();
+
+            var PlanId = request.PlanId;
+
+            response.Stage = dal.StageBackFill(PlanId);
+
+            if (response.Stage.Count>0)
+            {
+                response.Message = "反填数据查询成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "反填数据查询失败";
                 response.IsRegistSuccess = false;
             }
 
@@ -187,9 +215,9 @@ namespace BLL
 
             var projectstageId = request.ProjectStageId;
 
-            var result = dal.StageDetail(projectstageId);
+            response.Stage = dal.StageDetail(projectstageId);
 
-            if (result.Count>0)
+            if (response.Stage.Count>0)
             {
                 response.Message = "项目阶段详情调用成功";
                 response.IsRegistSuccess = true;
@@ -216,15 +244,15 @@ namespace BLL
             {
                 ProjectStageId =request.ProjectStageId,
                 StageName = request.StageName,
-                StageFinishTime = request.StageFinishTime,
+                StageFinishTime = request.StageFinishTime.ToUniversalTime(),
                 StageStaffName = request.StageStaffName,
                 StageStartTime = request.StageStartTime,
                 StageStaus = 1
             };
 
-            var res = dal.AddStage(info);
+            var result = dal.AddStage(info);
 
-            if (res>0)
+            if (result > 0)
             {
                 response.Message = "阶段添加成功";
                 response.IsRegistSuccess = true;
@@ -248,9 +276,9 @@ namespace BLL
 
             var PlanId = request.PlanId;
 
-            var res = dal.DeleteStage(PlanId);
+            var result = dal.DeleteStage(PlanId);
 
-            if (res > 0)
+            if (result > 0)
             {
                 response.Message = "逻辑删除该阶段成功";
                 response.IsRegistSuccess = true;
@@ -277,16 +305,15 @@ namespace BLL
             {
                 PlanId = request.PlanId,
                 StageName = request.StageName,
-                ProjectStageId = request.ProjectStageId,
                 StageStaus = 1,
-                StageStartTime = request.StageStartTime,
-                StageFinishTime = request.StageFinishTime,
+                StageStartTime = request.StageStartTime.ToUniversalTime(),
+                StageFinishTime = request.StageFinishTime.ToUniversalTime(),
                 StageStaffName = request.StageStaffName
         };
 
-            var res = dal.UpdateStage(info);
+            var result = dal.UpdateStage(info);
 
-            if (res > 0)
+            if (result > 0)
             {
                 response.Message = "阶段修改成功";
                 response.IsRegistSuccess = true;
@@ -314,9 +341,9 @@ namespace BLL
                 ProjectStage = request.ProjectStage
             };
 
-            var res = dal.UpdateProjectStaus(info);
+            var result = dal.UpdateProjectStaus(info);
 
-            if (res > 0)
+            if (result > 0)
             {
                 response.Message = "项目状态修改成功";
                 response.IsRegistSuccess = true;
@@ -340,9 +367,9 @@ namespace BLL
 
             var ProjectId = request.ProjectId;
 
-            var res = dal.BandProjectStaus(ProjectId);
+            var result = dal.BandProjectStaus(ProjectId);
 
-            if (res.Count > 0)
+            if (result.Count > 0)
             {
                 response.Message = "阶段绑定成功";
                 response.IsRegistSuccess = true;
@@ -367,10 +394,10 @@ namespace BLL
 
             var ProjectId = request.ProjectId;
 
-            var res = dal.UpdateStausProject(ProjectId);
+            var result = dal.UpdateStausProject(ProjectId);
 
 
-            if (res > 0)
+            if (result > 0)
             {
                 response.Message = "逻辑删除项目成功";
                 response.IsRegistSuccess = true;

@@ -9,5 +9,9 @@ namespace SDKClient
      public class ProjectBandGetRequest:BaseRequest
     {
         public int ProjectId { get; set; }
+        public override string GetApiName()
+        {
+            return "api/Project/BandProjectStaus";
+        }
     }
 }

@@ -52,6 +52,7 @@
     <Compile Include="Request\Project\ProjectProcGetRequest.cs" />
     <Compile Include="Request\Project\ProjectStausDeleteRequest.cs" />
     <Compile Include="Request\Project\ProjectStausUpdateRequest.cs" />
+    <Compile Include="Request\Project\StageBackFillGetResponse.cs" />
     <Compile Include="Request\Project\StageUpdateRequest.cs" />
     <Compile Include="Request\Project\StageAddRequest.cs" />
     <Compile Include="Request\Project\StageGetRequest.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Response\Project\ProjectProcGetResponse.cs" />
     <Compile Include="Response\Project\ProjectStausDeleteResponse.cs" />
     <Compile Include="Response\Project\ProjectStausUpdateReponse.cs" />
+    <Compile Include="Response\Project\StageBackFillGetRequest.cs" />
     <Compile Include="Response\Project\StageStausUpdateResponse.cs" />
     <Compile Include="Response\Project\StageAddResponse.cs" />
     <Compile Include="Response\Project\StageGetResponse.cs" />
@@ -107,6 +109,12 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="ApiSDKClient功能说明.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{8f32f212-6181-4db9-9a88-46b86980d582}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
