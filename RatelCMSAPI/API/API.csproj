@@ -164,6 +164,7 @@
     <Compile Include="Auth\ApiAuthAttribute.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\Project\ProjectController.cs" />
+    <Compile Include="Controllers\Reimbursement\ReimController.cs" />
     <Compile Include="Controllers\Talent\RecordController.cs" />
     <Compile Include="Controllers\Talent\TalentsController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -227,7 +228,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Controllers\Contractmanagement\" />
-    <Folder Include="Controllers\Reimbursement\" />
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
@@ -263,6 +263,10 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{31250233-2159-42b6-af09-110536ffff23}</Project>
       <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{BA1F1504-3B94-4990-9415-9A691752D56A}</Project>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{8f32f212-6181-4db9-9a88-46b86980d582}</Project>

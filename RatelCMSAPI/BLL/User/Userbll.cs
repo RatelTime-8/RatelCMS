@@ -68,7 +68,7 @@ namespace BLL
                 return response;
             }
             //判断手机号是否已注册
-            var isExist = dal.IsExistPhone(request.UserName);
+            var isExist = dal.IsExistPhone(request.UserPhone);
             if (isExist)
             {
                 response.Status = false;

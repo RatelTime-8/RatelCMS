@@ -30,8 +30,8 @@ namespace DAL
         {
             int res = 0;
             string sql = $@"INSERT INTO [dbo].[UserInfo]
-                          ([UserId]
-                          ,[UserPhone]
+                          (
+                           [UserPhone]
                           ,[UserName]
                           ,[UserPass]
                           ,[UserSalt]
@@ -45,7 +45,7 @@ namespace DAL
                            @UserPhone
                           ,@UserName
                           ,@UserPass
-                          ,@UaerSalt
+                          ,@UserSalt
                           ,1
                           ,GETDATE()
                           ,GETDATE()
@@ -71,10 +71,10 @@ namespace DAL
         /// </summary>
         /// <param name="UserPhone"></param>
         /// <returns></returns>
-        public UserInfo GetUserInfoSalt(string UserPhone)
+        public string GetUserInfoSalt(string UserPhone)
         {
             string sql = $" select UserSalt from UserInfo where UserPhone=@UserPhone and Status=1 ";
-            return DapperHelper<UserInfo>.QuerySingle(sql, new { UserPhone = UserPhone });
+            return DapperHelper<string>.QuerySingle(sql, new { UserPhone = UserPhone });
 
         }
     }
