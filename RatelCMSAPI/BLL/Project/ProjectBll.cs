@@ -158,9 +158,9 @@ namespace BLL
         {
             ProjectGetResponse response = new ProjectGetResponse();
 
-            var ProjectNumber = request.ProjectNumber;
+            var ProjectId = request.ProjectId;
 
-            response.Project= dal.ProjectDetail(ProjectNumber);
+            response.Project= dal.ProjectDetail(ProjectId);
 
             if (response.Project.Count>0)
             {

@@ -119,10 +119,10 @@ namespace DAL
         /// 查询项目详情
         /// </summary>
         /// <returns></returns>
-        public List<ProjectInfo> ProjectDetail(string ProjectNumber)
+        public List<ProjectInfo> ProjectDetail(int ProjectId)
         {
-            string sql = "select * from ProjectInfo where ProjectNumber=@projectNumber";
-            return DapperHelper<ProjectInfo>.Query(sql, new { projectNumber = ProjectNumber });
+            string sql = "select * from ProjectInfo where ProjectId=@projectId and ProjectStaus=1";
+            return DapperHelper<ProjectInfo>.Query(sql, new { projectId = ProjectId });
         }
       
         /// <summary>
@@ -132,7 +132,7 @@ namespace DAL
         /// <returns></returns>
         public List<StagePlanInfo> StageDetail(int ProjectStageId)
         {
-            string sql = "select * from StagePlanInfo where ProjectStageId=@projectStageId";
+            string sql = "select * from StagePlanInfo where ProjectStageId=@projectStageId and StageStaus=1";
             return DapperHelper<StagePlanInfo>.Query(sql, new { projectStageId = ProjectStageId });
         }
 
