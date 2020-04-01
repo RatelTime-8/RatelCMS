@@ -10,7 +10,7 @@ namespace Model
     public class UserInfo
     {
        //用户Id
-        public int Id { get; set; }
+        public int UserId { get; set; }
         //用户电话
         public string UserPhone { get; set; }
         //用户名称

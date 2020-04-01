@@ -41,7 +41,8 @@ namespace BLL
                 response.IsLoginSuccess = true;
                 response.UName = res.UserName;
                 response.UserPhone = res.UserPhone;
-                response.UserId = res.Id;    
+                response.UserId = res.UserId;
+                response.Message = "登录成功";
             }
             else
             {
@@ -95,6 +96,7 @@ namespace BLL
             if (res > 0)
             {
                 response.IsRegistSuccess = true;
+                response.Message = "注册成功";
             }
             else
             {
