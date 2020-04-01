@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SDKClient
 {
-    public class BurseDeleteResponse : BaseResponse
+    public class BurseXiangResponse
     {
     }
 }

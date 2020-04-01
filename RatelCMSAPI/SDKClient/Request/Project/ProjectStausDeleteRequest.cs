@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace SDKClient
 {
-    public class BurseDeleteRequest : BaseRequest
+    public class ProjectStausDeleteRequest:BaseRequest
     {
+        public int ProjectId { get; set; }
         public override string GetApiName()
         {
-            return "/api/User/DeleteUser";
+            return "api/Project/UpdateStausProject";
         }
     }
 }

@@ -1,13 +1,13 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Model
+namespace SDKClient
 {
-    //阶段计划表
-    public class StagePlanInfo
+    public class StageUpdaterequest : BaseRequest
     {
         //Id
         public int PlanId { get; set; }
@@ -23,5 +23,10 @@ namespace Model
         public int ProjectStageId { get; set; }
         //状态
         public int StageStaus { get; set; }
+
+        public override string GetApiName()
+        {
+            return "api/Project/UpdateStage";
+        }
     }
 }

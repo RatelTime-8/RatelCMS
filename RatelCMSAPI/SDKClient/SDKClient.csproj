@@ -48,11 +48,23 @@
     <Compile Include="Request\Contractmanagement\ContraDeleteRequest.cs" />
     <Compile Include="Request\Contractmanagement\ContraGetRequest.cs" />
     <Compile Include="Request\Contractmanagement\ContraUpdateRequest.cs" />
-    <Compile Include="Request\Project\User\UserGetProjectRequest.cs" />
+    <Compile Include="Request\Project\ProjectBandGetRequest.cs" />
+    <Compile Include="Request\Project\ProjectProcGetRequest.cs" />
+    <Compile Include="Request\Project\ProjectStausDeleteRequest.cs" />
+    <Compile Include="Request\Project\ProjectStausUpdateRequest.cs" />
+    <Compile Include="Request\Project\StageBackFillGetResponse.cs" />
+    <Compile Include="Request\Project\StageUpdateRequest.cs" />
+    <Compile Include="Request\Project\StageAddRequest.cs" />
+    <Compile Include="Request\Project\StageGetRequest.cs" />
+    <Compile Include="Request\Project\StageStausUpdateRequest.cs" />
+    <Compile Include="Request\Project\UserGetProjectRequest.cs" />
     <Compile Include="Request\Reimbursement\BurseAddRequest.cs" />
-    <Compile Include="Request\Reimbursement\BurseDeleteRequest.cs" />
+    <Compile Include="Request\Reimbursement\BurseBengRequest.cs" />
+    <Compile Include="Request\Reimbursement\BurseChaRequest.cs" />
     <Compile Include="Request\Reimbursement\BurseGetRequest.cs" />
     <Compile Include="Request\Reimbursement\BurseUpdateRequest.cs" />
+    <Compile Include="Request\Reimbursement\BurseXiangRequest.cs" />
+    <Compile Include="Request\Reimbursement\BurseZhuangRequest.cs" />
     <Compile Include="Request\Talent\TalentAddRequest.cs" />
     <Compile Include="Request\Talent\TalentDeleteRequest.cs" />
     <Compile Include="Request\Talent\TalentGetRequest.cs" />
@@ -63,16 +75,30 @@
     <Compile Include="Request\User\UserAddRequest.cs" />
     <Compile Include="Request\User\UserDeleteRequest.cs" />
     <Compile Include="Request\User\UserGetRequest.cs" />
+    <Compile Include="Request\User\UserLoginRequest.cs" />
+    <Compile Include="Request\User\UserRegistRequest.cs" />
     <Compile Include="Request\User\UserUpdateRequest.cs" />
     <Compile Include="Response\Contractmanagement\ContraAddResponse.cs" />
     <Compile Include="Response\Contractmanagement\ContraDeleteResponse.cs" />
     <Compile Include="Response\Contractmanagement\ContraGetResponse.cs" />
     <Compile Include="Response\Contractmanagement\ContraUpdateResponse.cs" />
-    <Compile Include="Response\Project\User\UserGetProjectResponse.cs" />
+    <Compile Include="Response\Project\ProjectBandGetResponse.cs" />
+    <Compile Include="Response\Project\ProjectProcGetResponse.cs" />
+    <Compile Include="Response\Project\ProjectStausDeleteResponse.cs" />
+    <Compile Include="Response\Project\ProjectStausUpdateReponse.cs" />
+    <Compile Include="Response\Project\StageBackFillGetRequest.cs" />
+    <Compile Include="Response\Project\StageStausUpdateResponse.cs" />
+    <Compile Include="Response\Project\StageAddResponse.cs" />
+    <Compile Include="Response\Project\StageGetResponse.cs" />
+    <Compile Include="Response\Project\StageUpdateResponse.cs" />
+    <Compile Include="Response\Project\UserGetProjectResponse.cs" />
     <Compile Include="Response\Reimbursement\BurseAddResponse.cs" />
-    <Compile Include="Response\Reimbursement\BurseDeleteResponse.cs" />
+    <Compile Include="Response\Reimbursement\BurseBangResponse.cs" />
+    <Compile Include="Response\Reimbursement\BurseChaResponse.cs" />
     <Compile Include="Response\Reimbursement\BurseGetResponse.cs" />
     <Compile Include="Response\Reimbursement\BurseUpdateResponse.cs" />
+    <Compile Include="Response\Reimbursement\BurseXiangResponse.cs" />
+    <Compile Include="Response\Reimbursement\BurseZhuangResponse.cs" />
     <Compile Include="Response\Talent\TalentAddResponse.cs" />
     <Compile Include="Response\Talent\TalentDeleteResponse.cs" />
     <Compile Include="Response\Talent\TalentGetResponse.cs" />
@@ -80,11 +106,21 @@
     <Compile Include="Response\Project\ProjectAddResponse.cs" />
     <Compile Include="Response\Project\ProjectGetResponse.cs" />
     <Compile Include="Response\Project\ProjectUpdateResponse.cs" />
+    <Compile Include="Response\User\UserLoginResponse.cs" />
     <Compile Include="Response\User\UserAddResponse.cs" />
     <Compile Include="Response\User\UserDeleteResponse.cs" />
     <Compile Include="Response\User\UserGetResponse.cs" />
+    <Compile Include="Response\User\UserRegistReponse.cs" />
     <Compile Include="Response\User\UserUpdateResponse.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="ApiSDKClient功能说明.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{8f32f212-6181-4db9-9a88-46b86980d582}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

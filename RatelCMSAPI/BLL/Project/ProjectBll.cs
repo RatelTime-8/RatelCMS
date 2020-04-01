@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 using DAL;
 using SDKClient;
 using Model;
+using Common;
 
 namespace BLL
 {
-    public class ProjectBll
+    public sealed class ProjectBll : BaseBll<ProjectBll>
     {
         Projectdal dal = new Projectdal();
-
         /// <summary>
         /// 项目参与人员绑定
         /// 根据所在职位部门
@@ -23,9 +23,9 @@ namespace BLL
 
             int departId = request.DepartId;
 
-            var list = dal.BandProjectbinding(departId);
+            response.info = dal.BandProjectbinding(departId);
 
-            if (list.Count>0)
+            if (response.info.Count>0)
             {
                 response.Message = "部门人员查询成功";
                 response.IsRegistSuccess = true;
@@ -125,9 +125,27 @@ namespace BLL
         /// 分页显示所有项目
         /// </summary>
         /// <returns></returns>
-        public ProjectGetResponse ProjectShow(ProjectGetRequest request)
+        public ProjectProcGetResponse ProjectShow(ProjectProcGetRequest request)
         {
-            ProjectGetResponse response = new ProjectGetResponse();
+            ProjectProcGetResponse response = new ProjectProcGetResponse();
+
+            var PageIndex = request.PageIndex;
+            var PageSize = request.PageSize;
+            var TotalCount = request.TotalCount;
+            var ProjectNumber = request.ProjectNumber;
+            var Projectstage = request.Projectstage;
+
+            response.Project = dal.ProjectShow(PageIndex,PageSize,ProjectNumber,Projectstage,out TotalCount);
+            if (response.Project.Count > 0)
+            {
+                response.Message = "项目执行成功";
+                response.IsRegistSuccess = true;
+            }
+            else
+            {
+                response.Message = "项目执行失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }
@@ -140,6 +158,49 @@ namespace BLL
         {
             ProjectGetResponse response = new ProjectGetResponse();
 
+            var ProjectId = request.ProjectId;
+
+            response.Project= dal.ProjectDetail(ProjectId);
+
+            if (response.Project.Count>0)
+            {
+                response.Message = "项目详情调用成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "项目详情调用失败";
+                response.IsRegistSuccess = false;
+            }
+
+            return response;
+        }
+
+        /// <summary>
+        /// 数据反填
+        /// </summary>
+        /// <returns></returns>
+        public StageBackFillGetResponse  StageBackFill(StageBackFillGetRequest request)
+        {
+            StageBackFillGetResponse response = new StageBackFillGetResponse();
+
+            var PlanId = request.PlanId;
+
+            response.Stage = dal.StageBackFill(PlanId);
+
+            if (response.Stage.Count>0)
+            {
+                response.Message = "反填数据查询成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "反填数据查询失败";
+                response.IsRegistSuccess = false;
+            }
+
             return response;
         }
 
@@ -148,9 +209,25 @@ namespace BLL
         /// </summary>
         /// <param name="ProjectStageId"></param>
         /// <returns></returns>
-        public ProjectGetResponse StageDetail(ProjectGetRequest request)
+        public StageGetResponse StageDetail(StageGetRequest request)
         {
-            ProjectGetResponse response = new ProjectGetResponse();
+            StageGetResponse response = new StageGetResponse();
+
+            var projectstageId = request.ProjectStageId;
+
+            response.Stage = dal.StageDetail(projectstageId);
+
+            if (response.Stage.Count>0)
+            {
+                response.Message = "项目阶段详情调用成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "项目阶段详情调用失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }
@@ -159,9 +236,33 @@ namespace BLL
         /// 新增阶段
         /// </summary>
         /// <returns></returns>
-        public ProjectAddResponse AddStage(ProjectAddRequest request)
+        public StageAddResponse AddStage(StageAddRequest request)
         {
-            ProjectAddResponse response = new ProjectAddResponse();
+            StageAddResponse response = new StageAddResponse();
+
+            StagePlanInfo info = new StagePlanInfo()
+            {
+                ProjectStageId =request.ProjectStageId,
+                StageName = request.StageName,
+                StageFinishTime = request.StageFinishTime.ToUniversalTime(),
+                StageStaffName = request.StageStaffName,
+                StageStartTime = request.StageStartTime,
+                StageStaus = 1
+            };
+
+            var result = dal.AddStage(info);
+
+            if (result > 0)
+            {
+                response.Message = "阶段添加成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "阶段添加失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }
@@ -169,9 +270,25 @@ namespace BLL
         /// <summary>
         /// 逻辑删除修改阶段
         /// </summary>
-        public ProjectUpdateResponse DeleteStage(ProjectUpdateRequest request)
+        public StageStausUpdateResponse DeleteStage(StageStausUpdaterequest request)
         {
-            ProjectUpdateResponse response = new ProjectUpdateResponse();
+            StageStausUpdateResponse response = new StageStausUpdateResponse();
+
+            var PlanId = request.PlanId;
+
+            var result = dal.DeleteStage(PlanId);
+
+            if (result > 0)
+            {
+                response.Message = "逻辑删除该阶段成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "逻辑删除该阶段失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }
@@ -180,9 +297,32 @@ namespace BLL
         /// 修改阶段
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse UpdateStage(ProjectUpdateRequest request)
+        public StageUpdateResponse UpdateStage(StageUpdaterequest request)
         {
-            ProjectUpdateResponse response = new ProjectUpdateResponse();
+            StageUpdateResponse response = new StageUpdateResponse();
+
+            StagePlanInfo info = new StagePlanInfo()
+            {
+                PlanId = request.PlanId,
+                StageName = request.StageName,
+                StageStaus = 1,
+                StageStartTime = request.StageStartTime.ToUniversalTime(),
+                StageFinishTime = request.StageFinishTime.ToUniversalTime(),
+                StageStaffName = request.StageStaffName
+        };
+
+            var result = dal.UpdateStage(info);
+
+            if (result > 0)
+            {
+                response.Message = "阶段修改成功";
+                response.IsRegistSuccess = true;
+            }
+            else
+            {
+                response.Message = "阶段修改失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response; 
         }
@@ -191,9 +331,28 @@ namespace BLL
         /// 修改项目状态
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse UpdateProjectStaus(ProjectUpdateRequest request)
+        public ProjectStausUpdateReponse UpdateProjectStaus(ProjectStausUpdateRequest request)
         {
-            ProjectUpdateResponse response = new ProjectUpdateResponse();
+            ProjectStausUpdateReponse response = new ProjectStausUpdateReponse();
+
+            ProjectInfo info = new ProjectInfo()
+            {
+                ProjectId = request.ProjectId,
+                ProjectStage = request.ProjectStage
+            };
+
+            var result = dal.UpdateProjectStaus(info);
+
+            if (result > 0)
+            {
+                response.Message = "项目状态修改成功";
+                response.IsRegistSuccess = true;
+            }
+            else
+            {
+                response.Message = "项目状态修改失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }
@@ -202,9 +361,25 @@ namespace BLL
         /// 绑定项目状态
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse BandProjectStaus(ProjectUpdateRequest request)
+        public ProjectBandGetResponse BandProjectStaus(ProjectBandGetRequest request)
         {
-            ProjectUpdateResponse response = new ProjectUpdateResponse();
+            ProjectBandGetResponse response = new ProjectBandGetResponse();
+
+            var ProjectId = request.ProjectId;
+
+            var result = dal.BandProjectStaus(ProjectId);
+
+            if (result.Count > 0)
+            {
+                response.Message = "阶段绑定成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "阶段绑定失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }
@@ -213,9 +388,25 @@ namespace BLL
         /// 逻辑删除项目
         /// </summary>
         /// <returns></returns>
-        public ProjectUpdateResponse UpdateStausProject(ProjectUpdateRequest request)
+        public ProjectStausDeleteResponse UpdateStausProject(ProjectStausDeleteRequest request)
         {
-            ProjectUpdateResponse response = new ProjectUpdateResponse();
+            ProjectStausDeleteResponse response = new ProjectStausDeleteResponse();
+
+            var ProjectId = request.ProjectId;
+
+            var result = dal.UpdateStausProject(ProjectId);
+
+
+            if (result > 0)
+            {
+                response.Message = "逻辑删除项目成功";
+                response.IsRegistSuccess = true;
+            }
+            else
+            {
+                response.Message = "逻辑删除项目失败";
+                response.IsRegistSuccess = false;
+            }
 
             return response;
         }

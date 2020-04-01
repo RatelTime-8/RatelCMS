@@ -6,13 +6,12 @@ using System.Threading.Tasks;
 
 namespace SDKClient
 {
-    public class ProjectGetRequest : BaseRequest
+    public class StageGetRequest:BaseRequest
     {
-        public int ProjectId { get; set; }
+        public int ProjectStageId { get; set; }
         public override string GetApiName()
         {
-            return "api/Project/ProjectDetail";
+            return "api/Project/StageDetail";
         }
-
     }
 }
