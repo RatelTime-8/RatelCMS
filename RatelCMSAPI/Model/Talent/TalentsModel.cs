@@ -17,6 +17,6 @@ namespace Model.Talents
         public string Information { get; set; }
         public string Email { get; set; }
         public string FanKui { get; set; }
-        public bool TState { get; set; }
+        public string TState { get; set; }
     }
 }
