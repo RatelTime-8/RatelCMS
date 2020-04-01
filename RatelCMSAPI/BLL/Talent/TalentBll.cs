@@ -30,5 +30,14 @@ namespace BLL.Talent
         {
             return dal.PutTalent(model);
         }
+        /// <summary>
+        /// 获取Id
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public List<TalentsModel> TalentId(int Id)
+        {
+            return dal.TalentId(Id);
+        }
     }
 }

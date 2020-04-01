@@ -14,6 +14,6 @@ namespace Model.Talents
         public string Pay { get; set; }
         public string GongNeiR { get; set; }
         public string LiZhi { get; set; }
-        public DateTime RTime { get; set; }
+        public string RTime { get; set; }
     }
 }
