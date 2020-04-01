@@ -12,6 +12,34 @@ namespace BLL
 {
     public sealed class ProjectBll : BaseBll<ProjectBll>
     {
+        /// <summary>
+        /// 修改项目阶段
+        /// </summary>
+        /// <param name="ProjectId"></param>
+        /// <returns></returns>
+        public ProjectStageUpdateResponse UpdateProjectStage(ProjectStageUpdateRequest request)
+        {
+            ProjectStageUpdateResponse response = new ProjectStageUpdateResponse();
+
+            var ProjectId=request.ProjectId;
+
+            var result = dal.UpdateProjectStage(ProjectId);
+
+            if (result>0)
+            {
+                response.Message = "状态修改成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "状态修改失败";
+                response.IsRegistSuccess = false;
+            }
+
+            return response;
+        }
+
         Projectdal dal = new Projectdal();
         /// <summary>
         /// 项目参与人员绑定

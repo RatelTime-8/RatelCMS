@@ -142,5 +142,16 @@ namespace API.Controllers
         {
             return ProjectBll.Instance.UpdateStausProject(request);
         }
+
+        [HttpPost]
+        /// <summary>
+        /// 修改项目阶段
+        /// </summary>
+        /// <param name="ProjectId"></param>
+        /// <returns></returns>
+        public ProjectStageUpdateResponse UpdateProjectStage(ProjectStageUpdateRequest request)
+        {
+            return ProjectBll.Instance.UpdateProjectStage(request);
+        }
     }
 }
