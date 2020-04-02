@@ -19,15 +19,15 @@ namespace SDKClient
         //项目描述
         public string ProjectDescribe { get; set; }
         //项目负责人
-        public int ProjectStaffId { get; set; }
+        public string ProjectStaffId { get; set; }
         //技术负责人
-        public int TechStaffId { get; set; }
+        public string TechStaffId { get; set; }
         //产品负责人
-        public int ProductStaffId { get; set; }
+        public string ProductStaffId { get; set; }
         //测试负责人
-        public int TestStaffId { get; set; }
+        public string TestStaffId { get; set; }
         //市场负责人
-        public int MarketStaffId { get; set; }
+        public string MarketStaffId { get; set; }
         //当前阶段
         public int ProjectStage { get; set; }
         //项目开始日期
