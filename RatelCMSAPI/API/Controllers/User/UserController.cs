@@ -6,7 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using SDKClient;
 using BLL;
-namespace API.User
+namespace API
 {    
     
     public class UserController : ApiController

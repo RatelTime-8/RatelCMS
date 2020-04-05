@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SDKClient
+namespace Model
 {
-    public class ContraGetRequest : BaseRequest
+   public class PageInfo
     {
-
+       
         /// <summary>
         /// 分页的大小
         /// </summary>
@@ -25,10 +25,7 @@ namespace SDKClient
         /// 总记录数
         /// </summary>
         public int RecordCount { get; set; }
-        public override string GetApiName()
-        {
-            return "/api/Contra/GetContra";
-        }
 
+   
     }
 }

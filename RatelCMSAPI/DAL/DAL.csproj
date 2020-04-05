@@ -65,10 +65,6 @@
       <Project>{8f32f212-6181-4db9-9a88-46b86980d582}</Project>
       <Name>Model</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SDKClient\SDKClient.csproj">
-      <Project>{8F32E304-3A2C-4970-BBD8-F56CC0917432}</Project>
-      <Name>SDKClient</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
