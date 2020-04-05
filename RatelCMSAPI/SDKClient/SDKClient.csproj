@@ -43,15 +43,12 @@
   <ItemGroup>
     <Compile Include="BaseRequest.cs" />
     <Compile Include="BaseResponse.cs" />
-    <Compile Include="Models\ContractmanageDto.cs" />
-    <Compile Include="Models\PageInfoDto.cs" />
-    <Compile Include="Models\ProjectDto.cs" />
-    <Compile Include="Models\StagePlanDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\Contractmanagement\ContraAddRequest.cs" />
     <Compile Include="Request\Contractmanagement\ContraDeleteRequest.cs" />
     <Compile Include="Request\Contractmanagement\ContraGetRequest.cs" />
     <Compile Include="Request\Contractmanagement\ContraUpdateRequest.cs" />
+    <Compile Include="Request\Project\ProjectStageUpdateRequest.cs" />
     <Compile Include="Request\Project\ProjectBandGetRequest.cs" />
     <Compile Include="Request\Project\ProjectProcGetRequest.cs" />
     <Compile Include="Request\Project\ProjectStausDeleteRequest.cs" />
@@ -86,17 +83,15 @@
     <Compile Include="Response\Contractmanagement\ContraDeleteResponse.cs" />
     <Compile Include="Response\Contractmanagement\ContraGetResponse.cs" />
     <Compile Include="Response\Contractmanagement\ContraUpdateResponse.cs" />
-    <Compile Include="Response\Project\ProjectAddResponse.cs" />
+    <Compile Include="Response\Project\ProjectStageUpdateResponse.cs" />
     <Compile Include="Response\Project\ProjectBandGetResponse.cs" />
-    <Compile Include="Response\Project\ProjectGetResponse.cs" />
     <Compile Include="Response\Project\ProjectProcGetResponse.cs" />
     <Compile Include="Response\Project\ProjectStausDeleteResponse.cs" />
     <Compile Include="Response\Project\ProjectStausUpdateReponse.cs" />
-    <Compile Include="Response\Project\ProjectUpdateResponse.cs" />
-    <Compile Include="Response\Project\StageAddResponse.cs" />
     <Compile Include="Response\Project\StageBackFillGetResponse.cs" />
-    <Compile Include="Response\Project\StageGetResponse.cs" />
     <Compile Include="Response\Project\StageStausUpdateResponse.cs" />
+    <Compile Include="Response\Project\StageAddResponse.cs" />
+    <Compile Include="Response\Project\StageGetResponse.cs" />
     <Compile Include="Response\Project\StageUpdateResponse.cs" />
     <Compile Include="Response\Project\UserGetProjectResponse.cs" />
     <Compile Include="Response\Reimbursement\BurseAddResponse.cs" />
@@ -110,6 +105,9 @@
     <Compile Include="Response\Talent\TalentDeleteResponse.cs" />
     <Compile Include="Response\Talent\TalentGetResponse.cs" />
     <Compile Include="Response\Talent\TalentUpdateResponse.cs" />
+    <Compile Include="Response\Project\ProjectAddResponse.cs" />
+    <Compile Include="Response\Project\ProjectGetResponse.cs" />
+    <Compile Include="Response\Project\ProjectUpdateResponse.cs" />
     <Compile Include="Response\User\UserLoginResponse.cs" />
     <Compile Include="Response\User\UserAddResponse.cs" />
     <Compile Include="Response\User\UserDeleteResponse.cs" />
