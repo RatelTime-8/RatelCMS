@@ -10,5 +10,6 @@ namespace SDKClient
     public class ProjectProcGetResponse:BaseResponse
     {
         public List<ProjectInfo> Project { get; set; }
+        public int TotalCount { get; set; }
     }
 }

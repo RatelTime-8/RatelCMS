@@ -152,22 +152,57 @@ namespace BLL
         /// 分页显示所有项目
         /// </summary>
         /// <returns></returns>
+        //public ProjectProcGetResponse ProjectShow(ProjectProcGetRequest request)
+        //{
+        //    ProjectProcGetResponse response = new ProjectProcGetResponse();
+
+        //    var PageIndex = request.PageIndex;
+        //    var PageSize = request.PageSize;
+        //    var ProjectNumber = request.ProjectNumber;
+        //    var Count = request.TotalCount;
+        //    var Projectstage = request.Projectstage;
+
+        //    response.Project = dal.ProjectShow(PageIndex,PageSize,ProjectNumber,Projectstage,out Count);
+        //    if (response.Project.Count > 0)
+        //    {
+        //        response.Message = "项目执行成功";
+        //        response.IsRegistSuccess = true;
+        //    }  
+        //    else
+        //    {
+        //        response.Message = "项目执行失败";
+        //        response.IsRegistSuccess = false;
+        //    }
+
+        //    return response;
+        //}
+
+
+        /// <summary>
+        /// 分页显示所有项目
+        /// </summary>
+        /// <returns></returns>
         public ProjectProcGetResponse ProjectShow(ProjectProcGetRequest request)
         {
             ProjectProcGetResponse response = new ProjectProcGetResponse();
 
-            var PageIndex = request.PageIndex;
-            var PageSize = request.PageSize;
-            var ProjectNumber = request.ProjectNumber;
-            var Count = request.TotalCount;
-            var Projectstage = request.Projectstage;
+            PageProperty page = new PageProperty()
+            {
+                PageIndex = request.PageIndex,
+                PageSize = request.PageSize,
+                ProjectNumber = request.ProjectNumber,
+                Projectstage = request.Projectstage,
+            };
 
-            response.Project = dal.ProjectShow(PageIndex,PageSize,ProjectNumber,Projectstage,out Count);
+            var list = dal.ProjectShow(page);
+
+            response.Project = list.Project;
+            response.TotalCount = list.TotalCount;
             if (response.Project.Count > 0)
             {
                 response.Message = "项目执行成功";
                 response.IsRegistSuccess = true;
-            }  
+            }
             else
             {
                 response.Message = "项目执行失败";
@@ -176,6 +211,8 @@ namespace BLL
 
             return response;
         }
+
+
 
         /// <summary>
         /// 查询项目详情
