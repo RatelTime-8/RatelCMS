@@ -158,16 +158,16 @@ namespace BLL
 
             var PageIndex = request.PageIndex;
             var PageSize = request.PageSize;
-            var TotalCount = request.TotalCount;
             var ProjectNumber = request.ProjectNumber;
+            var Count = request.TotalCount;
             var Projectstage = request.Projectstage;
 
-            response.Project = dal.ProjectShow(PageIndex,PageSize,ProjectNumber,Projectstage,out TotalCount);
+            response.Project = dal.ProjectShow(PageIndex,PageSize,ProjectNumber,Projectstage,out Count);
             if (response.Project.Count > 0)
             {
                 response.Message = "项目执行成功";
                 response.IsRegistSuccess = true;
-            }
+            }  
             else
             {
                 response.Message = "项目执行失败";

@@ -6,6 +6,7 @@ using System.Net.Http;
 using System.Web.Http;
 using BLL;
 using SDKClient;
+using Model;
 
 namespace API.Controllers
 {

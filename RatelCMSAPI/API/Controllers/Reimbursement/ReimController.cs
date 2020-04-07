@@ -39,15 +39,6 @@ namespace API.Controllers.Reimbursement
         }
 
         /// <summary>
-        /// 分页显示所有项目
-        /// </summary>
-        /// <returns></returns>
-        //public List<ProjectInfo> ProjectShow()
-        //{
-
-        //}
-
-        /// <summary>
         /// 查询详情
         /// </summary>
         /// <returns></returns>
