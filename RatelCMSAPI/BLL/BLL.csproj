@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseBll.cs" />
+    <Compile Include="Contractmanagement\ContractmanagementBll.cs" />
     <Compile Include="Project\ProjectBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reimbursement\ReimBll.cs" />
@@ -49,12 +50,10 @@
     <Compile Include="Talent\TalentBll.cs" />
     <Compile Include="User\Userbll.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contractmanagement\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{55652157-a012-4046-bf85-f96cd44f4321}</Project>
+      <Project>{55652157-A012-4046-BF85-F96CD44F4321}</Project>
       <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace SDKClient
 {
-    public class ContraGetRequest : BaseRequest
+   public class PageInfoDto
     {
-
+       
         /// <summary>
         /// 分页的大小
         /// </summary>
@@ -25,10 +25,7 @@ namespace SDKClient
         /// 总记录数
         /// </summary>
         public int RecordCount { get; set; }
-        public override string GetApiName()
-        {
-            return "/api/Contra/GetContra";
-        }
 
+   
     }
 }

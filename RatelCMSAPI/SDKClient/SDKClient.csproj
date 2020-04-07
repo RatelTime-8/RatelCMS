@@ -48,11 +48,12 @@
     <Compile Include="Request\Contractmanagement\ContraDeleteRequest.cs" />
     <Compile Include="Request\Contractmanagement\ContraGetRequest.cs" />
     <Compile Include="Request\Contractmanagement\ContraUpdateRequest.cs" />
+    <Compile Include="Request\Project\ProjectStageUpdateRequest.cs" />
     <Compile Include="Request\Project\ProjectBandGetRequest.cs" />
     <Compile Include="Request\Project\ProjectProcGetRequest.cs" />
     <Compile Include="Request\Project\ProjectStausDeleteRequest.cs" />
     <Compile Include="Request\Project\ProjectStausUpdateRequest.cs" />
-    <Compile Include="Request\Project\StageBackFillGetResponse.cs" />
+    <Compile Include="Request\Project\StageBackFillGetRequest.cs" />
     <Compile Include="Request\Project\StageUpdateRequest.cs" />
     <Compile Include="Request\Project\StageAddRequest.cs" />
     <Compile Include="Request\Project\StageGetRequest.cs" />
@@ -82,11 +83,12 @@
     <Compile Include="Response\Contractmanagement\ContraDeleteResponse.cs" />
     <Compile Include="Response\Contractmanagement\ContraGetResponse.cs" />
     <Compile Include="Response\Contractmanagement\ContraUpdateResponse.cs" />
+    <Compile Include="Response\Project\ProjectStageUpdateResponse.cs" />
     <Compile Include="Response\Project\ProjectBandGetResponse.cs" />
     <Compile Include="Response\Project\ProjectProcGetResponse.cs" />
     <Compile Include="Response\Project\ProjectStausDeleteResponse.cs" />
     <Compile Include="Response\Project\ProjectStausUpdateReponse.cs" />
-    <Compile Include="Response\Project\StageBackFillGetRequest.cs" />
+    <Compile Include="Response\Project\StageBackFillGetResponse.cs" />
     <Compile Include="Response\Project\StageStausUpdateResponse.cs" />
     <Compile Include="Response\Project\StageAddResponse.cs" />
     <Compile Include="Response\Project\StageGetResponse.cs" />

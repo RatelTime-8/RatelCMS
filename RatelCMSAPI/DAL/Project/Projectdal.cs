@@ -15,6 +15,17 @@ namespace DAL
     public class Projectdal
     {
         /// <summary>
+        /// 修改项目阶段
+        /// </summary>
+        /// <param name="ProjectId"></param>
+        /// <returns></returns>
+        public int UpdateProjectStage(int ProjectId)
+        {
+            string sql = "update ProjectInfo set Projectstage=Projectstage+1 where ProjectId=@projectId";
+            return DapperHelper<ProjectInfo>.Execute(sql,new {projectid=ProjectId });
+        }
+
+        /// <summary>
         /// 项目参与人员绑定
         /// 根据所在职位部门
         /// </summary>
@@ -57,7 +68,7 @@ namespace DAL
             ProductStaffId=@ProductStaffId,
             TestStaffId=@TestStaffId,
             MarketStaffId=@MarketStaffId,
-            ProjectStageId=@ProjectStageId,
+            ProjectStage=@ProjectStage,
             ProjectStartTime=@ProjectStartTime,
             ProjectOutTime=@ProjectOutTime
             where ProjectId=@ProjectId ";

@@ -1,4 +1,4 @@
-﻿using BLL.Talent;
+﻿using BLL;
 using Model.Talents;
 using System;
 using System.Collections.Generic;

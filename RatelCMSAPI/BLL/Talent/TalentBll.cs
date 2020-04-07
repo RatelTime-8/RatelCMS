@@ -8,7 +8,7 @@ using DAL.Talent;
 using Model;
 using Model.Talents;
 
-namespace BLL.Talent
+namespace BLL
 {
     public class TalentBll
     {

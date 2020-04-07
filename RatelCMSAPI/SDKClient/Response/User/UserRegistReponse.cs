@@ -11,6 +11,6 @@ namespace SDKClient
         /// <summary>
         /// 是否注册成功
         /// </summary>
-        public bool IsLoginSuccess { get; set; }
+        public bool IsUserRegistSuccess { get; set; }
     }
 }

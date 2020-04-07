@@ -17,30 +17,26 @@ namespace BLL
         /// 项目参与人员绑定
         /// 根据所在职位部门
         /// </summary>
-        public BurseBangResponse ReimbursementInfos(BurseBengRequest request )
+        public List<ReimbursementInfo> ReimbursementInfos(string DepartId)
         {
-            BurseBangResponse response = new BurseBangResponse();
-
-            return response;
+            return dal.ReimbursementInfos(DepartId);
         }
 
         /// <summary>
         /// 新增
         /// </summary>
-        public BurseAddResponse AddReimburse(BurseAddRequest burse)
+        public int AddReimburse(ReimbursementInfo info)
         {
-            BurseAddResponse burseAdd = new BurseAddResponse();
-            return burseAdd;
+            return dal.AddReimburse(info);
         }
 
         /// <summary>
         /// 修改
         /// </summary>
         /// <returns></returns>
-        public BurseUpdateResponse UpdateReimburse(BurseUpdateRequest request )
+        public int UpdateReimburse(List<ReimbursementInfo> infos)
         {
-            BurseUpdateResponse response = new BurseUpdateResponse();
-            return response;
+            return dal.UpdateReimburse(infos);
         }
 
         /// <summary>
@@ -56,10 +52,9 @@ namespace BLL
         /// 查询详情
         /// </summary>
         /// <returns></returns>
-        public BurseChaResponse Reimbursements(BurseChaRequest request )
+        public List<ReimbursementInfo> Reimbursements(ReimbursementInfo info)
         {
-            BurseChaResponse response = new BurseChaResponse();
-            return response;
+            return dal.Reimbursements(info);
         }
 
         /// <summary>
@@ -67,20 +62,18 @@ namespace BLL
         /// </summary>
         /// <param name="ProjectStageId"></param>
         /// <returns></returns>
-        public BurseXiangResponse reimbursements(BurseXiangRequest request )
+        public List<ReimbursementInfo> reimbursements(int ProjectStageId)
         {
-            BurseXiangResponse response = new BurseXiangResponse();
-            return response;
+            return dal.reimbursements(ProjectStageId);
         }
 
         /// <summary>
         /// 修改状态
         /// </summary>
         /// <returns></returns>
-        public BurseZhuangResponse  UpdateReimburse(BurseZhuangRequest request)
+        public int UpdateReimburse(int ReimId)
         {
-            BurseZhuangResponse response = new BurseZhuangResponse();
-            return response;
+            return dal.UpdateReimburse(ReimId);
         }
     }
 }

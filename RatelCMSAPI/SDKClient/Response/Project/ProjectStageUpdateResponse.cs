@@ -5,8 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace SDKClient
-{ 
-    public class BurseBengRequest
+{
+    public class ProjectStageUpdateResponse : BaseResponse
     {
+
     }
 }
