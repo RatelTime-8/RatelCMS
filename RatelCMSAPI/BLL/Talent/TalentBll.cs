@@ -22,6 +22,15 @@ namespace BLL
             return dal.Show(Name);
         }
         /// <summary>
+        /// 获取Id
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public List<TalentsModel> TalentId(int Id)
+        {
+            return dal.TalentId(Id);
+        }
+        /// <summary>
         /// 修改
         /// </summary>
         /// <param name="model"></param>
@@ -30,14 +39,10 @@ namespace BLL
         {
             return dal.PutTalent(model);
         }
-        /// <summary>
-        /// 获取Id
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
-        public List<TalentsModel> TalentId(int Id)
+
+        public int DeleteTalent(int Id)
         {
-            return dal.TalentId(Id);
+            return dal.DeleteTalent(Id);
         }
     }
 }
