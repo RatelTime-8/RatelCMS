@@ -44,15 +44,19 @@
     <Compile Include="BaseBll.cs" />
     <Compile Include="Project\ProjectBll.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reimbursement\ReimBll.cs" />
     <Compile Include="Talent\RecordBll.cs" />
     <Compile Include="Talent\TalentBll.cs" />
+    <Compile Include="User\Userbll.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Contractmanagement\" />
-    <Folder Include="Reimbursement\" />
-    <Folder Include="User\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{55652157-a012-4046-bf85-f96cd44f4321}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{ba1f1504-3b94-4990-9415-9a691752d56a}</Project>
       <Name>DAL</Name>

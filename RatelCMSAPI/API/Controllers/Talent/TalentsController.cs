@@ -22,6 +22,10 @@ namespace API.Controllers.Talent
         {
             return bll.Show(Name);
         }
+        public List<TalentsModel> GetTalentId(int Id)
+        {
+            return bll.TalentId(Id);
+        }
         /// <summary>
         /// 修改
         /// </summary>
@@ -31,10 +35,10 @@ namespace API.Controllers.Talent
         {
             return bll.PutTalent(model);
         }
-        [HttpGet]
-        public List<TalentsModel> GetTalentId(int Id)
+        [HttpDelete]
+        public int DeleteTalent(int Id)
         {
-            return bll.TalentId(Id);
+            return bll.DeleteTalent(Id);
         }
     }
 }
