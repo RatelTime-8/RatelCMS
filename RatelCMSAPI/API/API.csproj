@@ -45,6 +45,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Common, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\Common\bin\Debug\Common.dll</HintPath>
+    </Reference>
     <Reference Include="JWT, Version=6.0.0.0, Culture=neutral, PublicKeyToken=6f98bca0f40f2ecf, processorArchitecture=MSIL">
       <HintPath>..\packages\JWT.6.1.0\lib\net472\JWT.dll</HintPath>
     </Reference>
@@ -265,10 +269,6 @@
     <ProjectReference Include="..\BLL\BLL.csproj">
       <Project>{31250233-2159-42b6-af09-110536ffff23}</Project>
       <Name>BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{55652157-A012-4046-BF85-F96CD44F4321}</Project>
-      <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{8f32f212-6181-4db9-9a88-46b86980d582}</Project>

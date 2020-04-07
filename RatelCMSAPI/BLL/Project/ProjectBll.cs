@@ -74,7 +74,7 @@ namespace BLL
         {
             ProjectAddResponse response = new ProjectAddResponse();
 
-            ProjectInfo info = new ProjectInfo()
+            Model.ProjectInfo info = new Model.ProjectInfo()
             {
                 ProjectNumber=request.ProjectNumber,
                 ProjectName=request.ProjectName,

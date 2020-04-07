@@ -8,6 +8,6 @@ namespace SDKClient
 {
     public class ContraGetResponse : BaseResponse
     {
-
+  
     }
 }

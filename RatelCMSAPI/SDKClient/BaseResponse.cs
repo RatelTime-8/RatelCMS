@@ -1,9 +1,9 @@
-﻿using System;
+﻿using Model;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Model;
 
 namespace SDKClient
 {
@@ -21,5 +21,8 @@ namespace SDKClient
         /// 当状态失败时，提示消息
         /// </summary>
         public string Message { get; set; }
+
+        public List<ProjectInfo> Project { get; set; }
+        public List<StagePlanInfo> Stage { get; set; }
     }
 }
