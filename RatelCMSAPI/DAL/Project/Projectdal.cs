@@ -80,20 +80,42 @@ namespace DAL
         /// 分页显示所有项目
         /// </summary>
         /// <returns></returns>
-        public List<ProjectInfo> ProjectShow(int PageIndex,int PageSize,string ProjectNumber,int Projectstage,out int TotalCount)
+        //public List<ProjectInfo> ProjectShow(int PageIndex,int PageSize,string ProjectNumber,int Projectstage,out int TotalCount)
+        //{
+        //    var p = new DynamicParameters();
+        //    p.Add("@Pageindex",PageIndex);
+        //    p.Add("@PageSize",PageSize);
+        //    p.Add("@ProjectNumber",ProjectNumber);
+        //    p.Add("@Projectstage",Projectstage);
+        //    p.Add("@TotalCount",0,DbType.Int32,ParameterDirection.Output);
+
+        //    var list= DapperHelper<ProjectInfo>.ExecutePro("dbo.P_ProjectShow",p);
+
+        //    TotalCount = p.Get<int>("@TotalCount");
+
+        //    return list;
+        //}
+
+        /// <summary>
+        /// 分页显示所有项目
+        /// </summary>
+        /// <returns></returns>
+        public PageProjectInfo ProjectShow(PageProperty page)
         {
+            PageProjectInfo info = new PageProjectInfo();
+
             var p = new DynamicParameters();
-            p.Add("@Pageindex",PageIndex);
-            p.Add("@PageSize",PageSize);
-            p.Add("@ProjectNumber",ProjectNumber);
-            p.Add("@Projectstage",Projectstage);
-            p.Add("@TotalCount",0,DbType.Int32,ParameterDirection.Output);
+            p.Add("@Pageindex", page.PageIndex);
+            p.Add("@PageSize", page.PageSize);
+            p.Add("@ProjectNumber", page.ProjectNumber);
+            p.Add("@Projectstage", page.Projectstage);
+            p.Add("@TotalCount", page.Projectstage, DbType.Int32, ParameterDirection.Output);
 
-            var list= DapperHelper<ProjectInfo>.ExecutePro("dbo.P_ProjectShow",p);
+            info.Project = DapperHelper<ProjectInfo>.ExecutePro("dbo.P_ProjectShow", p);
 
-            TotalCount = p.Get<int>("@TotalCount");
+            info.TotalCount = p.Get<int>("@TotalCount");
 
-            return list;
+            return info;
         }
 
         /// <summary>
