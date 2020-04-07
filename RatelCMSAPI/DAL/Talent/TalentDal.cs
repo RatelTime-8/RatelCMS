@@ -17,7 +17,7 @@ namespace DAL.Talent
         public int AddTalent(TalentsModel model)
         {    
             string sql = string.Format("insert into Talents values('{0}','{1}','{2}','{3}','{4}','{5}','{6}','{7}','{8}')", model.TName,model.TelePhone, model.Graduate, model.Education, model.Station, model.Information,model.Email,model.FanKui,model.TState);
-            return DAL.DBHelper.ExecuteNonQuery(sql);
+            return DBHelper.ExecuteNonQuery(sql);
         }
         /// <summary>
         /// 显示个人人才信息
@@ -31,6 +31,16 @@ namespace DAL.Talent
             return list;
         }
         /// <summary>
+        /// 获取Id
+        /// </summary>
+        /// <param name="Id"></param>
+        /// <returns></returns>
+        public List<TalentsModel> TalentId(int Id)
+        {
+            string sql = string.Format("select * from Talents where TId=" + Id);
+            return DBHelper.GetToList<TalentsModel>(sql);
+        }
+        /// <summary>
         /// 修改
         /// </summary>
         /// <param name="model"></param>
@@ -40,15 +50,10 @@ namespace DAL.Talent
             string sql = string.Format("Update Talents set TName='{0}',TelePhone='{1}',Graduate='{2}',Education='{3}',Station='{4}',Information='{5}',Email='{6}',FanKui='{7}',TState='{8}'", model.TName, model.TelePhone, model.Graduate, model.Education, model.Station, model.Information, model.Email,model.FanKui,model.TState);
             return DBHelper.ExecuteNonQuery(sql);
         }
-        /// <summary>
-        /// 获取Id
-        /// </summary>
-        /// <param name="Id"></param>
-        /// <returns></returns>
-        public List<TalentsModel> TalentId(int Id)
+        public int DeleteTalent(int Id)
         {
-            string sql = string.Format("select * from Talents where TId=" + Id);
-            return DBHelper.GetToList<TalentsModel>(sql);
+            string sql = string.Format("delete from Talents where TId=" + Id);
+            return DBHelper.ExecuteNonQuery(sql);
         }
     }
 }

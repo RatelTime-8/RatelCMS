@@ -22,7 +22,5 @@ namespace SDKClient
         /// </summary>
         public string Message { get; set; }
 
-        public List<ProjectInfo> Project { get; set; }
-        public List<StagePlanInfo> Stage { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using BLL;
-using SDKClient;
+using Model;
 
 namespace API.Controllers.Reimbursement
 {
@@ -16,35 +16,39 @@ namespace API.Controllers.Reimbursement
         /// 项目参与人员绑定
         /// 根据所在职位部门
         /// </summary>
-        public BurseBangResponse ReimbursementInfos(BurseBengRequest request)
+        [HttpPost]
+        public List<ReimbursementInfo> ReimbursementInfos(string DepartId)
         {
-            return ReimBll.Instance.ReimbursementInfos(request);
+            return ReimBll.Instance.ReimbursementInfos(DepartId);
         }
 
         /// <summary>
         /// 新增
         /// </summary>
-        public BurseAddResponse AddReimburse(BurseAddRequest burse)
+        [HttpPost]
+        public int AddReimburse(ReimbursementInfo info)
         {
-            return ReimBll.Instance.AddReimburse(burse);
+            return ReimBll.Instance.AddReimburse(info);
         }
 
         /// <summary>
         /// 修改
         /// </summary>
         /// <returns></returns>
-        public BurseUpdateResponse UpdateReimburse(BurseUpdateRequest request)
+        [HttpPost]
+        public int UpdateReimburse(List<ReimbursementInfo> infos)
         {
-            return ReimBll.Instance.UpdateReimburse(request);
+            return ReimBll.Instance.UpdateReimburse(infos);
         }
 
         /// <summary>
         /// 查询详情
         /// </summary>
         /// <returns></returns>
-        public BurseChaResponse Reimbursements(BurseChaRequest request)
+        [HttpPost]
+        public List<ReimbursementInfo> Reimbursements(ReimbursementInfo info)
         {
-            return ReimBll.Instance.Reimbursements(request);
+            return ReimBll.Instance.Reimbursements(info);
         }
 
         /// <summary>
@@ -52,18 +56,20 @@ namespace API.Controllers.Reimbursement
         /// </summary>
         /// <param name="ProjectStageId"></param>
         /// <returns></returns>
-        public BurseXiangResponse reimbursements(BurseXiangRequest request)
+        [HttpPost]
+        public List<ReimbursementInfo> reimbursements(int ProjectStageId)
         {
-            return ReimBll.Instance.reimbursements(request);
+            return ReimBll.Instance.reimbursements(ProjectStageId);
         }
 
         /// <summary>
         /// 修改状态
         /// </summary>
         /// <returns></returns>
-        public BurseZhuangResponse UpdateReimburse(BurseZhuangRequest request)
+        [HttpPost]
+        public int UpdateReimburse(int ReimId)
         {
-            return ReimBll.Instance.UpdateReimburse(request);
+            return ReimBll.Instance.UpdateReimburse(ReimId);
         }
     }
 }

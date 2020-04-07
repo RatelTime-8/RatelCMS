@@ -11,6 +11,7 @@ namespace BLL
     public class RecordBll
     {
         RecordDal dal = new RecordDal();
+        
         public int AddRecoed(RecordModel model)
         {
             return dal.AddRecoed(model);
