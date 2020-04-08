@@ -10,20 +10,20 @@ using SDKClient;
 
 namespace BLL
 {
-    public sealed class ReimBll:BaseBll<ReimBll>
+    public sealed class ReimBll : BaseBll<ReimBll>
     {
         Reimbursementdal dal = new Reimbursementdal();
         /// <summary>
-        /// 项目参与人员绑定
-        /// 根据所在职位部门
+        /// 查询显示项目
         /// </summary>
         public List<ReimbursementInfo> ReimbursementInfos(string DepartId)
         {
+
             return dal.ReimbursementInfos(DepartId);
         }
 
         /// <summary>
-        /// 新增
+        /// 新增项目
         /// </summary>
         public int AddReimburse(ReimbursementInfo info)
         {
@@ -31,22 +31,13 @@ namespace BLL
         }
 
         /// <summary>
-        /// 修改
+        /// 修改项目
         /// </summary>
         /// <returns></returns>
         public int UpdateReimburse(List<ReimbursementInfo> infos)
         {
             return dal.UpdateReimburse(infos);
         }
-
-        /// <summary>
-        /// 分页显示所有项目
-        /// </summary>
-        /// <returns></returns>
-        //public List<ProjectInfo> ProjectShow()
-        //{
-
-        //}
 
         /// <summary>
         /// 查询详情
@@ -58,13 +49,13 @@ namespace BLL
         }
 
         /// <summary>
-        /// 阶段详情
+        /// 显示项目
         /// </summary>
-        /// <param name="ProjectStageId"></param>
-        /// <returns></returns>
-        public List<ReimbursementInfo> reimbursements(int ProjectStageId)
+        /// <param name = "ProjectStageId" ></ param >
+        /// < returns ></ returns >
+        public List<ReimbursementInfo> reimbursements()
         {
-            return dal.reimbursements(ProjectStageId);
+            return dal.reimbursements();
         }
 
         /// <summary>
