@@ -34,7 +34,7 @@ namespace DAL
         /// <returns></returns>
         public int UpdateReimburse(List<ReimbursementInfo> infos)
         {
-            string sql = @"update ProjectInfo set 
+            string sql = @"update ReimbursementInfo set 
             ApplyName=@ApplyName,
             CostId=@CostId,
             ApplyTime=@ApplyTime,
