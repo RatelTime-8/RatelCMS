@@ -35,7 +35,7 @@ namespace DAL.Talent
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public List<TalentsModel> TalentId(int Id)
+        public List<TalentsModel> TalentId(string Id)
         {
             string sql = string.Format("select * from Talents where TId=" + Id);
             return DBHelper.GetToList<TalentsModel>(sql);

@@ -22,7 +22,8 @@ namespace API.Controllers.Talent
         {
             return bll.Show(Name);
         }
-        public List<TalentsModel> GetTalentId(int Id)
+        [HttpPost]
+        public List<TalentsModel> GetTalentId(string Id)
         {
             return bll.TalentId(Id);
         }

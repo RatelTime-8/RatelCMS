@@ -26,7 +26,7 @@ namespace BLL
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public List<TalentsModel> TalentId(int Id)
+        public List<TalentsModel> TalentId(string Id)
         {
             return dal.TalentId(Id);
         }
