@@ -35,7 +35,7 @@ namespace API.Controllers.Reimbursement
         /// 修改项目
         /// </summary>
         /// <returns></returns>
-        public int UpdateReimburse(List<ReimbursementInfo> infos)
+        public int UpdateReimburse(ReimbursementInfo infos)
         {
             return ReimBll.Instance.UpdateReimburse(infos);
         }
@@ -68,7 +68,7 @@ namespace API.Controllers.Reimbursement
         /// <returns></returns>
         public int UpdateReimburseStage(int ReimId)
         {
-            return ReimBll.Instance.UpdateReimburse(ReimId);
+            return ReimBll.Instance.UpdateReimburseStage(ReimId);
         }
     }
 }
