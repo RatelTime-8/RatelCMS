@@ -13,6 +13,7 @@ namespace SDKClient
         public int PageSize { get; set; }
         public int Projectstage { get; set; }
         public string ProjectNumber { get; set; }
+        public int TotalCount { get; set; }
         public override string GetApiName()
         {
             return "api/Project/ProjectShow";
