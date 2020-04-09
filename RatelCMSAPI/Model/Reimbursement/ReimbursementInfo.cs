@@ -19,7 +19,7 @@ namespace Model
         /// <summary>
         /// 报销类型
         /// </summary>
-        public int CostId { get; set; }
+        public string CostId { get; set; }
         /// <summary>
         /// 报销日期
         /// </summary>
@@ -28,22 +28,6 @@ namespace Model
         /// 金额
         /// </summary>
         public decimal Money { get; set; }
-        /// <summary>
-        /// 同行人员
-        /// </summary>
-        public string Field { get; set; }
-        /// <summary>
-        /// 下班时间
-        /// </summary>
-        public DateTime ClosingTime { get; set; }
-        /// <summary>
-        /// 上车时间
-        /// </summary>
-        public DateTime PickUpTime { get; set; }
-        /// <summary>
-        /// 下车时间
-        /// </summary>
-        public DateTime GetOffTime { get; set; }
         /// <summary>
         /// 报销说明
         /// </summary>

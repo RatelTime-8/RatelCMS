@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Dapper;
 using Model;
 namespace DAL
 {
@@ -10,21 +12,23 @@ namespace DAL
     {
 
 
-        public List<Contractmanagement> GetContractmanagement(int pageSIndex,int pageSize,out int TotalPage,out int RecordCount)
-        {
-            TotalPage = 0;
-            RecordCount = 0;
-            string sql = @"EXEC    @return_value = [dbo].[SP_Procedure_PageGX]
-                         @TableName = N'Contractmanagement',
-                         @Fields = N'*',
-                         @OrderField = N'Contractnumber DESC',
-                         @sqlWhere = N'1=1',
-                         @pageSize = @pageSize,
-                         @pageIndex = @pageIndex,
-                         @TotalPage = @TotalPage OUTPUT,
-                         @RecordCount = @RecordCount OUTPUT";
-            return DapperHelper<Contractmanagement>.ExecutePro(sql,new {pageIndex=pageSIndex,pageSize,TotalPage, RecordCount });
-        }
+        //public Contractmanagement GetContractmanagement(PageProperty page)
+        //{
+        //    Contractmanagement info = new Contractmanagement();
+
+        //    var p = new DynamicParameters();
+        //    p.Add("@Pageindex", page.PageIndex);
+        //    p.Add("@PageSize", page.PageSize);
+        //    p.Add("@ProjectNumber", page.ProjectNumber);
+        //    p.Add("@Projectstage", page.Projectstage);
+        //    p.Add("@TotalCount", page.Projectstage, DbType.Int32, ParameterDirection.Output);
+
+        //    info.Project = DapperHelper<ProjectInfo>.ExecutePro("dbo.P_ProjectShow", p);
+
+        //    info.TotalCount = p.Get<int>("@TotalCount");
+
+        //    return info;
+        //}
 
         /// <summary>
         /// 删除合同

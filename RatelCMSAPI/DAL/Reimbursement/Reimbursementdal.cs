@@ -10,8 +10,7 @@ namespace DAL
     public class Reimbursementdal
     {
         /// <summary>
-        /// 项目参与人员绑定
-        /// 根据所在职位部门
+        /// 查询详情
         /// </summary>
         public List<ReimbursementInfo> ReimbursementInfos(string DepartId)
         {
@@ -21,11 +20,11 @@ namespace DAL
         }
 
         /// <summary>
-        /// 新增
+        /// 新增详情
         /// </summary>
         public int AddReimburse(ReimbursementInfo info)
         {
-            string sql = "insert into ApplyManager values(@ApplyName,@CostId,@ApplyTime,@Money,@ApplyExplain)";
+            string sql = "insert into  ApplyManager (ApplyName,CostId,ApplyTime,Money,ApplyExplain) values(@ApplyName,@CostId,@ApplyTime,@Money,@ApplyExplain)";
             return DapperHelper<ReimbursementInfo>.Execute(sql, info);
         }
 
@@ -33,27 +32,19 @@ namespace DAL
         /// 修改
         /// </summary>
         /// <returns></returns>
-        public int UpdateReimburse(List<ReimbursementInfo> infos)
+        public int UpdateReimburse(ReimbursementInfo infos)
         {
-            string sql = @"update ProjectInfo set 
+            string sql = @"update ApplyManager set 
             ApplyName=@ApplyName,
             CostId=@CostId,
             ApplyTime=@ApplyTime,
             Money=@Money,
-            ApplyExplain=@ApplyExplain,
+            ApplyExplain=@ApplyExplain
             where Id=@Id ";
 
             return DapperHelper<ReimbursementInfo>.Execute(sql, infos);
         }
 
-        /// <summary>
-        /// 分页显示所有项目
-        /// </summary>
-        /// <returns></returns>
-        //public List<ProjectInfo> ProjectShow()
-        //{
-
-        //}
 
         /// <summary>
         /// 查询详情
@@ -66,23 +57,22 @@ namespace DAL
         }
 
         /// <summary>
-        /// 阶段详情
+        /// 显示详情
         /// </summary>
         /// <param name="ProjectStageId"></param>
         /// <returns></returns>
-        public List<ReimbursementInfo> reimbursements(int ProjectStageId)
+        public List<ReimbursementInfo> reimbursements()
         {
-            string sql = "select * from ApplyManager where Id=@ProjectStageId";
-            return DapperHelper<ReimbursementInfo>.Query(sql, new { ProjectStageId = ProjectStageId });
+            string sql = "select * from ApplyManager";
+            return DapperHelper<ReimbursementInfo>.Query(sql,null);
         }
-
         /// <summary>
         /// 修改状态
         /// </summary>
         /// <returns></returns>
-        public int UpdateReimburse(int ReimId)
+        public int UpdateReimburseStage(int ReimId)
         {
-            string sql = "update ApplyManager set ApplyState=1 where Id=@ProjectId";
+            string sql = "update ApplyManager set ApplyState=2 where Id=@ProjectId";
             return DapperHelper<ReimbursementInfo>.Execute(sql, new { ProjectId = ReimId });
         }
     }
