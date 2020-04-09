@@ -50,10 +50,10 @@ namespace DAL
         /// 查询详情
         /// </summary>
         /// <returns></returns>
-        public List<ReimbursementInfo> Reimbursements(ReimbursementInfo info)
+        public List<ReimbursementInfo> Reimbursements(string ApplyName,string CostId,int ApplyState)
         {
-            string sql = "select * from ApplyManager where ApplyName=@ApplyName and CostId=@CostId and ApplyState=@ApplyState";
-            return DapperHelper<ReimbursementInfo>.Query(sql, info);
+            string sql = "select * from ApplyManager where ApplyName=@applyName and CostId=@costId and ApplyState=@applyState";
+            return DapperHelper<ReimbursementInfo>.Query(sql,new { applyName= ApplyName, costId= CostId, applyState= ApplyState });
         }
 
         /// <summary>

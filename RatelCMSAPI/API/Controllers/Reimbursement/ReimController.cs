@@ -45,9 +45,9 @@ namespace API.Controllers.Reimbursement
         /// 查询详情
         /// </summary>
         /// <returns></returns>
-        public List<ReimbursementInfo> Reimbursements(ReimbursementInfo info)
+        public List<ReimbursementInfo> Reimbursements(string ApplyName, string CostId, int ApplyState)
         {
-            return ReimBll.Instance.Reimbursements(info);
+            return ReimBll.Instance.Reimbursements(ApplyName, CostId, ApplyState);
         }
 
         [HttpGet]
