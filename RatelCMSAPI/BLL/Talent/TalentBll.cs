@@ -26,7 +26,7 @@ namespace BLL
         /// </summary>
         /// <param name="Id"></param>
         /// <returns></returns>
-        public List<TalentsModel> TalentId(string Id)
+        public List<TalentsModel> TalentId(int Id)
         {
             return dal.TalentId(Id);
         }
@@ -35,9 +35,9 @@ namespace BLL
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public int PutTalent(TalentsModel model)
+        public int UpdateTalent(TalentsModel model)
         {
-            return dal.PutTalent(model);
+            return dal.UpdateTalent(model);
         }
 
         public int DeleteTalent(int Id)
