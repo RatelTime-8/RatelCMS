@@ -45,10 +45,10 @@ namespace DAL.Talent
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public int PutTalent(TalentsModel model)
+        public int UpdateTalent(TalentsModel model)
         {
-            string sql = string.Format("Update Talents set TName='{0}',TelePhone='{1}',Graduate='{2}',Education='{3}',Station='{4}',Information='{5}',Email='{6}',FanKui='{7}',TState='{8}'", model.TName, model.TelePhone, model.Graduate, model.Education, model.Station, model.Information, model.Email,model.FanKui,model.TState);
-            return DBHelper.ExecuteNonQuery(sql);
+            string sql = string.Format("Update Talents set TName=@TName,TelePhone=@TelePhone,Graduate=@Graduate,Education=@Education,Station=@Station,Information=@Information,Email=@Email,FanKui=@FanKui,TState=@TState where TId=@TId");
+            return DapperHelper<TalentsModel>.Execute(sql, model);
         }
         public int DeleteTalent(int Id)
         {
@@ -57,3 +57,4 @@ namespace DAL.Talent
         }
     }
 }
+//TName='{0}',TelePhone='{1}',Graduate='{2}',Education='{3}',Station='{4}',Information='{5}',Email='{6}',FanKui='{7}',TState='{8}' where TId = '{9}'", model.TName, model.TelePhone, model.Graduate, model.Education, model.Station, model.Information, model.Email,model.FanKui,model.TState,model.TId
