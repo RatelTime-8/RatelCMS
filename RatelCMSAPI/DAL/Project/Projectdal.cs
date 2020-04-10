@@ -26,16 +26,6 @@ namespace DAL
         }
 
         /// <summary>
-        /// 项目参与人员绑定
-        /// 根据所在职位部门
-        /// </summary>
-        public List<PositionInfo> BandProjectbinding(int DepartId)
-        {
-            string sql = "select * from PositionInfo where DepartId=@Id";
-            return DapperHelper<PositionInfo>.Query(sql, new {Id=DepartId});
-        }
-
-        /// <summary>
         /// 新增项目
         /// </summary>
         public int AddProject(ProjectInfo info)

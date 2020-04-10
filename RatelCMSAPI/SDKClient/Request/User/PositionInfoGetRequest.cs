@@ -11,7 +11,7 @@ namespace SDKClient
         public int DerId { get; set; }
         public override string GetApiName()
         {
-            return "/api/User/GetPositionInfo";
+            return "api/User/PositionInfoGet";
         }
     }
 }

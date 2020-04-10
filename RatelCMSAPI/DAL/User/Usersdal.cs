@@ -96,8 +96,8 @@ namespace DAL
             string sql = @"select p.Id,p.PositName from PositionInfo p
                            join  DepartOfPostion dp 
                            on dp.PositionId=p.Id
-                           where dp.DepartmentId=@DeparId and p.Status=1";
-            return DapperHelper<PositionInfo>.Query(sql, new { DepartId = DepartId });
+                           where dp.DepartmentId=@departId and p.Status=1";
+            return DapperHelper<PositionInfo>.Query(sql, new { departId = DepartId });
         }
         /// <summary>
         /// 查询人员表
@@ -109,7 +109,7 @@ namespace DAL
             string sql = @"select s.Id,s.StaffName from StaffInfo s
                            join [dbo].[PosiOfStaff] ps 
                            on ps.StaffId=s.Id
-                           where ps.PositionId=@PosiId and p.Status=1";
+                           where ps.PositionId=@PosiId and s.Status=1";
             return DapperHelper<StaffInfo>.Query(sql, new { PosiId = PosiId });
         }
 
