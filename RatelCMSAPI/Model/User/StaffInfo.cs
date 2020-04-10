@@ -6,13 +6,10 @@ using System.Threading.Tasks;
 
 namespace Model
 {
-    //职位表
-    public class PositionInfo
+   public class StaffInfo
     {
-        //职位表主键
         public int Id { get; set; }
-        //职位名称
-        public string PositName { get; set; }
-        
+        public string StaffName { get; set; }
+        public DateTime StaffEntryDate { get; set; }
     }
 }

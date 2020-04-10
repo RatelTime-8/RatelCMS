@@ -73,6 +73,9 @@
     <Compile Include="Request\Project\ProjectAddRequest.cs" />
     <Compile Include="Request\Project\ProjectGetRequest.cs" />
     <Compile Include="Request\Project\ProjectUpdateRequest.cs" />
+    <Compile Include="Request\User\StaffInfoGetRequset.cs" />
+    <Compile Include="Request\User\PositionInfoGetRequest.cs" />
+    <Compile Include="Request\User\DepartmentInfoGetRequest.cs" />
     <Compile Include="Request\User\UserAddRequest.cs" />
     <Compile Include="Request\User\UserDeleteRequest.cs" />
     <Compile Include="Request\User\UserGetRequest.cs" />
@@ -108,6 +111,9 @@
     <Compile Include="Response\Project\ProjectAddResponse.cs" />
     <Compile Include="Response\Project\ProjectGetResponse.cs" />
     <Compile Include="Response\Project\ProjectUpdateResponse.cs" />
+    <Compile Include="Response\User\DepartmentInfoGetResponse.cs" />
+    <Compile Include="Response\User\PositionInfoGetResponse.cs" />
+    <Compile Include="Response\User\StaffInfoGetResponse.cs" />
     <Compile Include="Response\User\UserLoginResponse.cs" />
     <Compile Include="Response\User\UserAddResponse.cs" />
     <Compile Include="Response\User\UserDeleteResponse.cs" />

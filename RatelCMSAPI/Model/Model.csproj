@@ -56,6 +56,7 @@
     <Compile Include="User\DerOfPerInfo.cs" />
     <Compile Include="User\PermissionInfo.cs" />
     <Compile Include="User\PositionInfo.cs" />
+    <Compile Include="User\StaffInfo.cs" />
     <Compile Include="User\UserOfPos.cs" />
     <Compile Include="User\UserInfo.cs" />
   </ItemGroup>
