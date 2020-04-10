@@ -26,14 +26,15 @@ namespace API.Controllers.Talent
         {
             return bll.TalentId(Id);
         }
+        [HttpPut]
         /// <summary>
         /// 修改
         /// </summary>
         /// <param name="model"></param>
         /// <returns></returns>
-        public int PutTalent(TalentsModel model)
+        public int UpdateTalent(TalentsModel model)
         {
-            return bll.PutTalent(model);
+            return bll.UpdateTalent(model);
         }
         [HttpDelete]
         public int DeleteTalent(int Id)

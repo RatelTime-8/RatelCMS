@@ -34,7 +34,7 @@ namespace BLL
         /// 修改项目
         /// </summary>
         /// <returns></returns>
-        public int UpdateReimburse(List<ReimbursementInfo> infos)
+        public int UpdateReimburse(ReimbursementInfo infos)
         {
             return dal.UpdateReimburse(infos);
         }
@@ -43,9 +43,9 @@ namespace BLL
         /// 查询详情
         /// </summary>
         /// <returns></returns>
-        public List<ReimbursementInfo> Reimbursements(ReimbursementInfo info)
+        public List<ReimbursementInfo> Reimbursements(string ApplyName, string CostId, int ApplyState)
         {
-            return dal.Reimbursements(info);
+            return dal.Reimbursements(ApplyName, CostId, ApplyState);
         }
 
         /// <summary>
@@ -62,9 +62,9 @@ namespace BLL
         /// 修改状态
         /// </summary>
         /// <returns></returns>
-        public int UpdateReimburse(int ReimId)
+        public int UpdateReimburseStage(int ReimId)
         {
-            return dal.UpdateReimburse(ReimId);
+            return dal.UpdateReimburseStage(ReimId);
         }
     }
 }

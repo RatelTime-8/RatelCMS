@@ -32,14 +32,14 @@ namespace DAL
         /// 修改
         /// </summary>
         /// <returns></returns>
-        public int UpdateReimburse(List<ReimbursementInfo> infos)
+        public int UpdateReimburse(ReimbursementInfo infos)
         {
-            string sql = @"update ProjectInfo set 
+            string sql = @"update ApplyManager set 
             ApplyName=@ApplyName,
             CostId=@CostId,
             ApplyTime=@ApplyTime,
             Money=@Money,
-            ApplyExplain=@ApplyExplain,
+            ApplyExplain=@ApplyExplain
             where Id=@Id ";
 
             return DapperHelper<ReimbursementInfo>.Execute(sql, infos);
@@ -50,10 +50,10 @@ namespace DAL
         /// 查询详情
         /// </summary>
         /// <returns></returns>
-        public List<ReimbursementInfo> Reimbursements(ReimbursementInfo info)
+        public List<ReimbursementInfo> Reimbursements(string ApplyName,string CostId,int ApplyState)
         {
-            string sql = "select * from ApplyManager where ApplyName=@ApplyName and CostId=@CostId and ApplyState=@ApplyState";
-            return DapperHelper<ReimbursementInfo>.Query(sql, info);
+            string sql = "select * from ApplyManager where ApplyName=@applyName and CostId=@costId and ApplyState=@applyState";
+            return DapperHelper<ReimbursementInfo>.Query(sql,new { applyName= ApplyName, costId= CostId, applyState= ApplyState });
         }
 
         /// <summary>
@@ -70,7 +70,7 @@ namespace DAL
         /// 修改状态
         /// </summary>
         /// <returns></returns>
-        public int UpdateReimburse(int ReimId)
+        public int UpdateReimburseStage(int ReimId)
         {
             string sql = "update ApplyManager set ApplyState=2 where Id=@ProjectId";
             return DapperHelper<ReimbursementInfo>.Execute(sql, new { ProjectId = ReimId });
