@@ -11,7 +11,7 @@ namespace SDKClient
         public int PosId { get; set; }
         public override string GetApiName()
         {
-            return "/api/User/GeStaffInfo";
+            return "/api/User/StaffInfoGet";
         }
     }
 }

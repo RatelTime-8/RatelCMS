@@ -14,16 +14,16 @@ namespace API.Controllers
     {
 
         ProjectBll bll = new ProjectBll();
-        [HttpPost]
+        //[HttpPost]
         /// <summary>
         /// 项目参与人员绑定
         /// 根据所在职位部门
         /// 加入单例
         /// </summary>
-        public UserGetProjectResponse BandProjectbinding(UserGetProjectRequest request)
-        {
-            return ProjectBll.Instance.BandProjectbinding(request);
-        }
+        //public UserGetProjectResponse BandProjectbinding(UserGetProjectRequest request)
+        //{
+        //    return ProjectBll.Instance.BandProjectbinding(request);
+        //}
 
         [HttpPost]
         /// <summary>

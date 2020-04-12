@@ -25,15 +25,15 @@ namespace DAL
             return DapperHelper<ProjectInfo>.Execute(sql,new {projectid=ProjectId });
         }
 
-        /// <summary>
-        /// 项目参与人员绑定
-        /// 根据所在职位部门
-        /// </summary>
-        public List<PositionInfo> BandProjectbinding(int DepartId)
-        {
-            string sql = "select * from PositionInfo where DepartId=@Id";
-            return DapperHelper<PositionInfo>.Query(sql, new {Id=DepartId});
-        }
+        ///// <summary>
+        ///// 项目参与人员绑定
+        ///// 根据所在职位部门
+        ///// </summary>
+        //public List<PositionInfo> BandProjectbinding(int DepartId)
+        //{
+        //    string sql = "select * from PositionInfo where DepartId=@Id";
+        //    return DapperHelper<PositionInfo>.Query(sql, new {Id=DepartId});
+        //}
 
         /// <summary>
         /// 新增项目

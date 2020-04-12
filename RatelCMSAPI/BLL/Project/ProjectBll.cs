@@ -44,28 +44,28 @@ namespace BLL
         /// 项目参与人员绑定
         /// 根据所在职位部门
         /// </summary>
-        public UserGetProjectResponse BandProjectbinding(UserGetProjectRequest request)
-        {
-            UserGetProjectResponse response = new UserGetProjectResponse();
+        //public UserGetProjectResponse BandProjectbinding(UserGetProjectRequest request)
+        //{
+        //    UserGetProjectResponse response = new UserGetProjectResponse();
 
-            int departId = request.DepartId;
+        //    int departId = request.DepartId;
 
-            response.info = dal.BandProjectbinding(departId);
+        //    response.info = dal.BandProjectbinding(departId);
 
-            if (response.info.Count>0)
-            {
-                response.Message = "部门人员查询成功";
-                response.IsRegistSuccess = true;
-            }
+        //    if (response.info.Count>0)
+        //    {
+        //        response.Message = "部门人员查询成功";
+        //        response.IsRegistSuccess = true;
+        //    }
 
-            else
-            {
-                response.Message = "部门人员查询失败";
-                response.IsRegistSuccess = false;
-            }
+        //    else
+        //    {
+        //        response.Message = "部门人员查询失败";
+        //        response.IsRegistSuccess = false;
+        //    }
 
-            return response;
-        }
+        //    return response;
+        //}
 
         /// <summary>
         /// 新增项目
