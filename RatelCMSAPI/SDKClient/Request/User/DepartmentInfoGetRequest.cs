@@ -10,7 +10,7 @@ namespace SDKClient
     {
         public override string GetApiName()
         {
-            return "/api/User/DepartmentInfoGet";
+            return "api/User/DepartmentInfoGet";
         }
     }
 }

@@ -91,26 +91,26 @@ namespace DAL
         /// </summary>
         /// <param name="DepartId"></param>
         /// <returns></returns>
-        public List<PositionInfo> GetPositionInfos(int departId=0)
+        public List<PositionInfo> GetPositionInfos(int DepartId=0)
         {
             string sql = @"select p.Id,p.PositName from PositionInfo p
                            join  DepartOfPostion dp 
                            on dp.PositionId=p.Id
-                           where dp.DepartmentId=@DeparId and p.Status=1";
-            return DapperHelper<PositionInfo>.Query(sql, new { DepartId = departId });
+                           where dp.DepartmentId=@departId and p.Status=1";
+            return DapperHelper<PositionInfo>.Query(sql, new { departId = DepartId });
         }
         /// <summary>
         /// 查询人员表
         /// </summary>
         /// <param name="DepartId"></param>
         /// <returns></returns>
-        public List<StaffInfo> GetStaffInfos(int posiId=0)
+        public List<StaffInfo> GetStaffInfos(int PosiId=0)
         {
             string sql = @"select s.Id,s.StaffName from StaffInfo s
                            join [dbo].[PosiOfStaff] ps 
                            on ps.StaffId=s.Id
                            where ps.PositionId=@PosiId and s.Status=1";
-            return DapperHelper<StaffInfo>.Query(sql, new { PosiId = posiId });
+            return DapperHelper<StaffInfo>.Query(sql, new { PosiId = PosiId });
         }
 
 
