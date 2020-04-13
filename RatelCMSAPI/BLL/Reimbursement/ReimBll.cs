@@ -43,9 +43,9 @@ namespace BLL
         /// 查询详情
         /// </summary>
         /// <returns></returns>
-        public List<ReimbursementInfo> Reimbursements(ReimbursementInfo info)
+        public List<ReimbursementInfo> Reimbursements(string ApplyName, string CostId, int ApplyState)
         {
-            return dal.Reimbursements(info);
+            return dal.Reimbursements(ApplyName, CostId, ApplyState);
         }
 
         /// <summary>

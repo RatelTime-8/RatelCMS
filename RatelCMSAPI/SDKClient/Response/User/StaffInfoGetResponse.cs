@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Model;
-
 namespace SDKClient
 {
-    public class UserGetProjectResponse : BaseResponse
+    public class StaffInfoGetResponse : BaseResponse
     {
-        public List<PositionInfo> info { get; set; }
+        public List<StaffInfo>  staffs { get; set; }
+
     }
 }

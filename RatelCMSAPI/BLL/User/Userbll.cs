@@ -105,6 +105,70 @@ namespace BLL
             }
             return response;
         }
+        /// <summary>
+        /// 部门接口
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public DepartmentInfoGetResponse GetDepartment(DepartmentInfoGetRequest request)
+        {
+            DepartmentInfoGetResponse der = new DepartmentInfoGetResponse();
+            der.Departments = dal.GetDepartmentInfos();
+            if (der.Departments.Count>0)
+            {
+                der.Message = "部门信息调用成功";
+                der.IsRegistSuccess = true;
+            }
+            return der;
+        }
+        /// <summary>
+        /// 职位接口
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public PositionInfoGetResponse GetPositionInfo(PositionInfoGetRequest request)
+        {
+            PositionInfoGetResponse response = new PositionInfoGetResponse();
+            response.positions = dal.GetPositionInfos(request.DerId);
+            if (response.positions.Count > 0)
+            {
+                response.Message = "职位信息调用成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "职位信息调用失败";
+                response.IsRegistSuccess = false;
+            }
+
+            return response;
+        }
+        /// <summary>
+        /// 员工接口
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        public StaffInfoGetResponse GetStaffInfo(StaffInfoGetRequset request)
+        {
+            StaffInfoGetResponse response = new StaffInfoGetResponse();
+            response.staffs = dal.GetStaffInfos(request.PosId);
+            if (response.staffs.Count > 0)
+            {
+                response.Message = "员工信息调用成功";
+                response.IsRegistSuccess = true;
+            }
+
+            else
+            {
+                response.Message = "员工信息调用失败";
+                response.IsRegistSuccess = false;
+            }
+
+            return response;
+        }
+
+
     }
 }
 

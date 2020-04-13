@@ -28,12 +28,41 @@ namespace API
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        /// 
-      
+        ///   
         [HttpPost]
         public UserRegistReponse UserRegist(UserRegistRequest request)
         {
             return Userbll.Instance.UserInfoRegist(request);
+        }
+        /// <summary>
+        /// 部门
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public DepartmentInfoGetResponse DepartmentInfoGet(DepartmentInfoGetRequest request)
+        {
+            return Userbll.Instance.GetDepartment(request);
+        }
+        /// <summary>
+        /// 职位
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public PositionInfoGetResponse PositionInfoGet(PositionInfoGetRequest request)
+        {
+            return Userbll.Instance.GetPositionInfo(request);
+        }
+        /// <summary>
+        /// 员工
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public StaffInfoGetResponse StaffInfoGet (StaffInfoGetRequset request)
+        {
+            return Userbll.Instance.GetStaffInfo(request);
         }
 
 

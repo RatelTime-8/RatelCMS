@@ -64,7 +64,7 @@ namespace DAL
         public bool IsExistPhone(string phone)
         {
             string sql = $" select count(1) from UserInfo where UserPhone=@UserPhone and status=1 ";
-            return Convert.ToBoolean( DapperHelper<int>.ExecuteScalar(sql,new { UserPhone=phone }));
+            return Convert.ToBoolean(DapperHelper<int>.ExecuteScalar(sql, new { UserPhone = phone }));
         }
         /// <summary>
         /// 获取盐
@@ -77,5 +77,43 @@ namespace DAL
             return DapperHelper<string>.QuerySingle(sql, new { UserPhone = UserPhone });
 
         }
+        /// <summary>
+        /// 查询部门列表
+        /// </summary>
+        /// <returns></returns>
+        public List<DepartmentInfo> GetDepartmentInfos()
+        {
+            string sql = @"select d.DepartmentId,d.DepartmentName from [dbo].[DepartmentInfo] d where Status=1";
+            return DapperHelper<DepartmentInfo>.Query(sql, null);
+        }
+        /// <summary>
+        /// 查询职位表
+        /// </summary>
+        /// <param name="DepartId"></param>
+        /// <returns></returns>
+        public List<PositionInfo> GetPositionInfos(int DepartId=0)
+        {
+            string sql = @"select p.Id,p.PositName from PositionInfo p
+                           join  DepartOfPostion dp 
+                           on dp.PositionId=p.Id
+                           where dp.DepartmentId=@departId and p.Status=1";
+            return DapperHelper<PositionInfo>.Query(sql, new { departId = DepartId });
+        }
+        /// <summary>
+        /// 查询人员表
+        /// </summary>
+        /// <param name="DepartId"></param>
+        /// <returns></returns>
+        public List<StaffInfo> GetStaffInfos(int PosiId=0)
+        {
+            string sql = @"select s.Id,s.StaffName from StaffInfo s
+                           join [dbo].[PosiOfStaff] ps 
+                           on ps.StaffId=s.Id
+                           where ps.PositionId=@PosiId and s.Status=1";
+            return DapperHelper<StaffInfo>.Query(sql, new { PosiId = PosiId });
+        }
+
+
+
     }
 }

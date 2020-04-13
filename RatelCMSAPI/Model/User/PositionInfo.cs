@@ -11,8 +11,6 @@ namespace Model
     {
         //职位表主键
         public int Id { get; set; }
-        //部门Id
-        public int DepartId { get; set; }
         //职位名称
         public string PositName { get; set; }
         
