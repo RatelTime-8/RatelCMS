@@ -22,11 +22,12 @@ namespace API.Controllers.Talent
         {
             return bll.Show(CName);
         }
-        public List<TalentsModel> GetTalentId(int Id)
+        [HttpGet]
+        public List<TalentsModel> TalentId(int Id)
         {
             return bll.TalentId(Id);
         }
-        [HttpPut]
+        [HttpPost]
         /// <summary>
         /// 修改
         /// </summary>
