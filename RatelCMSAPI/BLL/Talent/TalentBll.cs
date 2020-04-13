@@ -17,9 +17,9 @@ namespace BLL
         {
             return dal.AddTalent(model);
         }
-        public List<TalentsModel> Show(string Name)
+        public List<TalentsModel> Show(string CName)
         {
-            return dal.Show(Name);
+            return dal.Show(CName);
         }
         /// <summary>
         /// 获取Id

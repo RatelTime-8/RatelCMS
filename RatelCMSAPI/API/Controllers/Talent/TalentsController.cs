@@ -18,9 +18,9 @@ namespace API.Controllers.Talent
             return bll.AddTalent(model);
         }
         [HttpGet]
-        public List<TalentsModel> Show(string Name)
+        public List<TalentsModel> Show(string CName)
         {
-            return bll.Show(Name);
+            return bll.Show(CName);
         }
         public List<TalentsModel> GetTalentId(int Id)
         {

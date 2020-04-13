@@ -24,9 +24,9 @@ namespace DAL.Talent
         /// </summary>
         /// <param name="Name"></param>
         /// <returns></returns>
-        public List<TalentsModel> Show(string Name)
+        public List<TalentsModel> Show(string CName)
         {
-            string sql = $"select * from Talents where TName like '%{Name}%'";
+            string sql = $"select * from Talents where TName like '%{CName}%'";
             List<TalentsModel> list = DBHelper.GetToList<TalentsModel>(sql);
             return list;
         }
